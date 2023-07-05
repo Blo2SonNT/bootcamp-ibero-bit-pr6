@@ -1,0 +1,85 @@
+* {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: rgb(232, 193, 212);
+    background: -moz-linear-gradient(191deg, rgba(232, 193, 212, 1) 0%, rgba(193, 241, 232, 1) 17%, rgba(216, 221, 232, 1) 49%, rgba(224, 227, 152, 1) 100%);
+    background: -webkit-linear-gradient(191deg, rgba(232, 193, 212, 1) 0%, rgba(193, 241, 232, 1) 17%, rgba(216, 221, 232, 1) 49%, rgba(224, 227, 152, 1) 100%);
+    background: linear-gradient(191deg, rgba(232, 193, 212, 1) 0%, rgba(193, 241, 232, 1) 17%, rgba(216, 221, 232, 1) 49%, rgba(224, 227, 152, 1) 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#e8c1d4", endColorstr="#e0e398", GradientType=1);
+}
+
+.containerLogo {
+    padding: 50px 0 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logoOutlook {
+    width: 170px;
+    height: 35px;
+}
+
+.cajaLogin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.formulario {
+    background: #fff;
+    padding: 34px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, .2);
+}
+
+.formulario h1 {
+    margin: 0;
+    font-weight: 600;
+}
+
+.textContinuar {
+    font-size: .8rem;
+    margin-bottom: 12px;
+}
+
+.formulario input {
+    width: 90%;
+    padding: 6px 10px;
+    border: none;
+    border-bottom: 1px solid #00000066;
+}
+
+.textoEnlace {
+    font-size: .8rem;
+    margin: 15px 0;
+}
+
+.textoEnlace a {
+    text-decoration: none;
+    color: #0067b8;
+}
+
+.enlaceLlave {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.enlaceLlave img {
+    margin-left: 5px;
+}
+
+.posicionBtn {
+    display: flex;
+    justify-content: end;
+}
+
+.btnSiguiente {
+    background-color: #0067b8;
+    color: #fff;
+    border-color: #0067b8;
+    padding: 4px 12px;
+}
