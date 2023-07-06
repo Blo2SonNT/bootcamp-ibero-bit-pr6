@@ -1,0 +1,139 @@
+body {
+    padding: 0 50px;
+    background-color: #F0F2F5;
+    font-family: SFProDisplay-Regular, Helvetica, Arial, sans-serif;
+}
+
+@media (max-width: 992px) {
+    .reparticion {
+        margin-top: 8%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .cajaLogo {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-right: 0 !important;
+    }
+    .cajaLogo img {
+        transform: translateX(0) !important;
+    }
+    .textoLogin {
+        text-align: center;
+        width: 400px !important;
+        margin-bottom: 25px;
+    }
+}
+
+.reparticion {
+    margin-top: 8%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all .5s;
+}
+
+.cajaLogo {
+    width: 400px;
+    padding-right: 32px;
+}
+
+.cajaLogo img {
+    transform: translateX(-33px);
+    width: 301px;
+    height: 106px;
+}
+
+.textoLogin {
+    font-size: 24px;
+    line-height: 28px;
+    width: 380px;
+}
+
+.cajaForm {
+    display: flex;
+    flex-direction: column;
+}
+
+.cajaForm form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    padding: 20px 0 28px;
+    width: 396px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .1), 0 8px 16px rgba(0, 0, 0, .1);
+}
+
+.cajaForm form input {
+    font-size: 17px;
+    padding: 14px 16px;
+    width: 330px;
+    margin: 6px 0;
+}
+
+.btnLogin {
+    text-align: center;
+    width: 93%;
+    background-color: #1877f2;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 15px 0;
+    margin-top: 8px;
+    cursor: pointer;
+}
+
+.cajaForm form a {
+    text-decoration: none;
+    color: #1877f2;
+    font-size: 14px;
+    margin-top: 25px;
+}
+
+.redondeo,
+form,
+input,
+.btnLogin,
+.btnNuevaCuenta {
+    border: none;
+    border-radius: 10px;
+}
+
+input {
+    border: 1px solid #dddfe2
+}
+
+.linea {
+    width: 95%;
+    border: 1px solid #dddfe2;
+    margin: 30px 0;
+}
+
+.btnNuevaCuenta {
+    color: #fff;
+    background-color: #42b72a;
+    text-align: center;
+    font-size: 17px;
+    padding: 16px;
+    font-weight: bold;
+    border: none;
+}
+
+.textoNuevaPag {
+    width: 390px;
+    font-size: 14px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.textoNuevaPag a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #000;
+}
