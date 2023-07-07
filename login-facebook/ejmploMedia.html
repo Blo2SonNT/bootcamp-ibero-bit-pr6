@@ -9,14 +9,34 @@
 
 <body>
     <style>
+        /* body {
+            background-image: url(assets/img/HP.webp);
+            background-size: cover;
+            background-attachment: fixed;
+        } */
+        
+         :root {
+            --color-morado: #6c498d;
+        }
+        
+        @font-face {
+            font-family: 'mi-fuente-cursiva';
+            src: url(assets/fonts/Best_Moment.otf);
+        }
+        
         .cuadro {
             width: 300px;
             height: 300px;
             transition: .5s all;
         }
         
+        .cuadro:hover {
+            border: 3px solid red;
+            border-radius: 30px;
+        }
+        
         .cuadro1 {
-            background-color: #8a2be2;
+            background-color: var(--color-morado);
         }
         
         .cuadro2 {
@@ -41,12 +61,65 @@
                 flex-direction: row;
             }
         }
+        
+        .ejemplo div {
+            font-family: 'mi-fuente-cursiva';
+            font-size: 13rem;
+        }
+        
+        .ejemplo {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .ejemplo2 {
+            display: flex;
+            justify-content: space-evenly;
+        }
+        
+        .ejemplo3 {
+            display: flex;
+            justify-content: space-around;
+        }
     </style>
 
     <section class="flex">
         <div class="cuadro cuadro1"></div>
         <div class="cuadro cuadro2"></div>
     </section>
+
+    <section class="ejemplo">
+        <div>Palabra 1</div>
+        <div>
+            <img src="../logo-google.svg" width="30" height="30" alt="">
+        </div>
+        <div>Palabra 2</div>
+    </section>
+
+
+    <section class="ejemplo2">
+        <div>Palabra 1</div>
+        <div>Palabra 2</div>
+    </section>
+
+
+
+    <section class="ejemplo3">
+        <div>Palabra 1</div>
+        <div>Palabra 2</div>
+    </section>
+
+    <input data-gato="ejemplo1" class="pepe" type="button" value="">
+    <input data-gato="ejemplo2" class="pepe" readonly type="text" value="">
+    <input data-gato="ejemplo2" class="pepe" type="date" value="">
+
+    <style>
+        .pepe[data-gato="ejemplo2"],
+        .pepe[type="date"] {
+            border: 2px solid red;
+        }
+    </style>
+
 </body>
 
 </html>
