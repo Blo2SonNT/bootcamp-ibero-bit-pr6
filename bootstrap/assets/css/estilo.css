@@ -1,0 +1,76 @@
+.imgUsuario {
+    background-image: url(../img/user.jpg);
+    width: 45px;
+    height: 45px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.bg-purpura {
+    background-color: #8a2be2;
+}
+
+.cuadro-1 {
+    background-color: aquamarine;
+    height: 200px
+}
+
+.cuadro-2 {
+    background-color: chartreuse;
+    height: 200px
+}
+
+.cuadro-3 {
+    background-color: brown;
+    height: 200px
+}
+
+.cuadro-4 {
+    background-color: yellow;
+}
+
+.cuadro-5 {
+    background-color: coral;
+    height: 200px
+}
+
+.cuadro-6 {
+    background-color: darkgray;
+    height: 200px
+}
+
+.cuadro-7 {
+    background-color: burlywood;
+    height: 200px
+}
+
+.cuadro-8 {
+    background-color: darkkhaki;
+    height: 200px
+}
+
+.cuadro-9 {
+    background-color: darkorchid;
+    height: 200px
+}
+
+.cuadro-10 {
+    background-color: crimson;
+    height: 200px
+}
+
+.cuadro-11 {
+    background-color: darkgoldenrod;
+    height: 200px
+}
+
+.cuadro-12 {
+    background-color: dodgerblue;
+    height: 200px
+}
+
+.jirafa {
+    background-image: url(https://estaticos-cdn.prensaiberica.es/clip/259c23fb-52f5-4860-9f83-b27c055612de_16-9-aspect-ratio_default_0.jpg);
+    background-position: center;
+    background-size: cover;
+}
