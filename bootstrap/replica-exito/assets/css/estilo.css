@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+:root {
+    --amarillo-exito: #FFE800;
+    --blanco: #FFF;
+    --naranja: #f27b2d;
+}
+
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+.amarilloExito {
+    background-color: var(--amarillo-exito);
+}
+
+.menuLateral {
+    transition: all .8s;
+}
+
+.menuLateral:hover {
+    background-color: var(--blanco);
+    transform: scale(0.7);
+}
+
+.btnModalMetodoEnvio {
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.inputBuscador {
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.anchoBuscador {
+    min-width: 460px;
+}
+
+.puntoNotificacion {
+    transform: translate(-15px, 1px) scale(.7) !important;
+}
+
+.bg-orange {
+    background-color: var(--naranja);
+}
+
+.miCuenta {
+    font-size: 10px;
+    font-weight: 500;
+}
+
+.barraSecundaria {
+    padding-top: 5px;
+}
+
+.btnSegundaBarra {
+    font-size: 12px;
+    width: 145px;
+    border-top-left-radius: 10px !important;
+    border-top-right-radius: 10px !important;
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+}
+
+.bordeAmarillo {
+    width: 80%;
+    border: 3px solid var(--amarillo-exito);
+}
+
+.espacios {
+    white-space: nowrap;
+}
+
+.hoverSubrayado:hover {
+    text-decoration: underline !important;
+}
