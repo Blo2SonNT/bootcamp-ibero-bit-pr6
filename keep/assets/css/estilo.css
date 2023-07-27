@@ -3,6 +3,120 @@
     src: url(../fonts/find_cartoon.otf);
 }
 
+body {
+    background-color: #222;
+}
+
 .letraKeep {
     font-family: 'fuentePaginaEspecial';
+}
+
+.contenedorPrincipal {
+    height: 80vh;
+}
+
+
+/* input formulario */
+
+.containerBtnInput {
+    position: relative;
+    width: 100%;
+}
+
+.containerBtnInput input {
+    width: 100%;
+    background: transparent;
+    outline: none;
+    border: none;
+    color: #ffffff;
+    padding: 8px;
+}
+
+.containerBtnInput label {
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: rgba(255, 255, 255, 0.7);
+    text-transform: uppercase;
+    pointer-events: none;
+    transition: .5s;
+    font-weight: bold;
+}
+
+.containerBtnInput input:valid~label,
+.containerBtnInput input:focus~label {
+    color: rgb(255, 255, 255);
+    transform: translateY(-15px);
+    font-size: .8rem;
+}
+
+.containerBtnInput i {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background: #222;
+}
+
+.containerBtnInput i:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, #ffff1b, #e28214, #2196f3, #9c27b0, #ff1b69, #56de0d);
+    animation: animate 3s linear infinite;
+}
+
+
+/* Estilos boton */
+
+.button {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 0px 15px;
+    background-color: red;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    position: relative;
+    cursor: pointer;
+    font-weight: 900;
+    transition-duration: .2s;
+    background: linear-gradient(0deg, #000, #272727);
+}
+
+.button:before,
+.button:after {
+    content: '';
+    position: absolute;
+    left: -2px;
+    top: -2px;
+    border-radius: 10px;
+    background: linear-gradient(45deg, #fb0094, #0000ff, #00ff00, #ffff00, #ff0000, #fb0094, #0000ff, #00ff00, #ffff00, #ff0000);
+    background-size: 400%;
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    z-index: -1;
+    animation: steam 20s linear infinite;
+}
+
+@keyframes steam {
+    0% {
+        background-position: 0 0;
+    }
+    50% {
+        background-position: 400% 0;
+    }
+    100% {
+        background-position: 0 0;
+    }
+}
+
+.button:after {
+    filter: blur(50px);
 }
