@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <style>
+        .form-control:focus {
+            border-color: #dee2e6;
+            outline: 0;
+            box-shadow: none
+        }
+    </style>
+    <section class="container mt-5 pt-5">
+        <h3 class="text-center mb-4">Ingresa con tus datos</h3>
+        <div class="row">
+            <div class="col-4 offset-4">
+                <form id="formLogin">
+                    <div class="mb-3">
+                        <label for="iCorreo" class="form-label">Correo</label>
+                        <input type="text" class="form-control" id="iCorreo">
+                    </div>
+                    <div class="mb-3">
+                        <label for="iPassword" class="form-label">Contraseña</label>
+                        <input type="password" class="form-control" id="iPassword">
+                    </div>
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="chkRecuerdame">
+                        <label class="form-check-label" for="chkRecuerdame">Recuerdame</label>
+                    </div>
+                    <button type="submit" class="btn btn-dark">Ingresar</button>
+                    <button id="btnIngreso" type="button" class="btn btn-primary">Ingresar</button>
+                    <button onclick="saludame()" type="button" class="btn btn-warning">Ingresar</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'fuentePaginaEspecial';
+    src: url(../fonts/find_cartoon.otf);
+}
+
+.letraKeep {
+    font-family: 'fuentePaginaEspecial';
+}
