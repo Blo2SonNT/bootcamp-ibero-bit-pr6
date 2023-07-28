@@ -11,6 +11,7 @@ formularioIngreso.addEventListener("submit", (evento) => {
             if (dataUsuario.correo == correoInput) {
                 if (dataUsuario.pass == evento.target.claveUsuario.value) {
                     location.href = "bienvenida.html"
+                    sessionStorage.setItem('login', 'si')
                 } else {
                     alert("Su correo o contraseña no son validos")
                 }

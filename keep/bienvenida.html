@@ -51,19 +51,49 @@
         </div>
     </nav>
 
+    <section class="container mt-3">
+        <div class="d-flex justify-content-end">
+            <button class="btn btn-warning fw-bold" data-bs-toggle="modal" data-bs-target="#modalNotas">Crear
+                nota</button>
+        </div>
+    </section>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="modalNotas" tabindex="-1" aria-labelledby="modalNotasLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="modalNotasLabel">Crear nueva nota</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="formNota">
+                        <div class=" mb-3">
+                            <input type="text" id="iTitulo" placeholder="Titulo" class="form-control">
+                            <div class="fw-bold text-danger d-none" id="errorTitulo">El titulo de la nota es obligatorio</div>
+                        </div>
+                        <div class="mb-3">
+                            <textarea name="" id="txtNota" cols="30" rows="10" class="form-control " placeholder="Que necesitas guardar?"></textarea>
+                            <div class="fw-bold text-danger d-none" id="errorNota">Ingrese la nota que desea guardar</div>
+                        </div>
+                        <button type="submit" id="" class="btn btn-dark w-100">Guardar nota</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <section class="contenedorPrincipal d-flex justify-content-center align-items-center flex-column">
         <div class="container">
-            <h1 class="text-white fw-bold text-center">
-                Bienvenido amiguito
-            </h1>
+            <h1 class="text-white fw-bold text-center" id="resumenNotas"></h1>
         </div>
     </section>
 
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js " integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm " crossorigin="anonymous "></script>
-    <script src="assets/js/code.js "></script>
+    <script src="assets/js/bienvenido.js "></script>
 </body>
 
 </html>
