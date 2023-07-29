@@ -47,6 +47,18 @@ function guardarDocumento() {
     localStorage.setItem('tipoDocumento', documentoUsuario.value)
     documentoUsuario.classList.add('border', 'border-success', 'border-3', 'pepe')
 }
+
+//Ejemplo de condicional ternario
+
+let nombre = "miguel"
+if (nombre == 'pepe') {
+    console.log('eres pepe')
+} else {
+    console.error('no eres pepe')
+}
+
+(nombre == 'pepe') ? console.log('eres pepe') : console.error('no eres pepe')
+
 */
 
 
@@ -59,29 +71,53 @@ if (sessionStorage.getItem('login') == null) {
     formularioNotas.addEventListener('submit', (pepeEvento) => {
         pepeEvento.preventDefault();
 
-        mostrarError('iTitulo', 'errorTitulo')
-        mostrarError('txtNota', 'errorNota')
+        let errorFormulario = false;
+        (!mostrarError('iTitulo', 'errorTitulo')) ? errorFormulario = true: '';
+        (!mostrarError('txtNota', 'errorNota')) ? errorFormulario = true: '';
 
-        console.log(pepeEvento)
-        localStorage.setItem('tituloNota', pepeEvento.target.iTitulo.value)
-        localStorage.setItem('nota', pepeEvento.target.txtNota.value)
+        if (!errorFormulario) {
+
+            let contador = 0
+            if (localStorage.getItem('contador') == null) {
+                localStorage.setItem('contador', 0)
+            } else {
+                contador = localStorage.getItem('contador')
+                contador = parseInt(contador)
+                contador++
+            }
+
+            localStorage.setItem(`tituloNota${contador}`, pepeEvento.target.iTitulo.value)
+            localStorage.setItem(`nota${contador}`, pepeEvento.target.txtNota.value)
+            localStorage.setItem('contador', contador)
+            pepeEvento.target.reset()
+            Swal.fire({
+                title: 'La notita fue guardada',
+                icon: 'success',
+                iconColor: '#2bff00',
+                color: '#fff',
+                background: '#111',
+                backdrop: `
+                    rgba(76, 196, 49, 0.56)
+                    url("assets/img/pato.gif")
+                    left top
+                    no-repeat
+                `,
+                confirmButtonText: 'Vale! 😬',
+                confirmButtonColor: '#1f911f',
+            })
+            listarNotas()
+        }
     })
 
 
-    if (localStorage.getItem('contador') == null) {
-        localStorage.setItem('contador', 0)
-    }
 
 
 
 
 
+    listarNotas()
 
-    if (parseInt(localStorage.getItem('contador')) > 0) {
-        //proceso si existen notas
-    } else {
-        document.querySelector('#resumenNotas').innerHTML = "No tienes notas almacenadas"
-    }
+
 
 
 }
@@ -91,6 +127,41 @@ function mostrarError(idInput, idDiverror) {
     if (document.querySelector(`#${idInput}`).value == '') {
         let divError = document.querySelector(`#${idDiverror}`)
         divError.classList.remove('d-none')
-        return
+        return false
+    } else {
+        return true
     }
 }
+
+
+function listarNotas() {
+    if (parseInt(localStorage.getItem('contador')) >= 0) {
+
+        let grillaNotas = document.querySelector("#notasUsuario")
+
+        grillaNotas.innerHTML = ''
+        let cantidadNotas = localStorage.getItem('contador')
+
+        for (let xNota = 0; xNota <= cantidadNotas; xNota++) {
+            grillaNotas.innerHTML += `
+                <div class="col">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">${localStorage.getItem('tituloNota'+xNota)}</h5>
+                            <p class="card-text">${localStorage.getItem('nota'+xNota)}</p>
+                        </div>
+                    </div>
+                </div>
+            `
+
+        }
+
+        //proceso si existen notas
+        document.querySelector('#resumenNotas').innerHTML = `Tienes ${parseInt(localStorage.getItem('contador'))+1} notas almacenadas`
+    } else {
+        document.querySelector('#resumenNotas').innerHTML = "No tienes notas almacenadas"
+    }
+}
+
+
+//Mixin example
