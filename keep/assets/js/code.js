@@ -1,3 +1,36 @@
+/*
+
+let nombre = 'Luis'
+
+if (nombre == 'Pepe') {
+    console.log('Eres pepe')
+} else if (nombre == 'Miguel') {
+    console.log('Eres miguel')
+} else if (nombre == 'Tatiana') {
+    console.log('Eres Tatiana')
+} else if (nombre == 'Luis') {
+    console.log('Eres Luis')
+} else if (nombre == 'Kevin') {
+    console.log('Eres Kevin')
+} else {
+    console.log('No te conozco')
+}
+
+
+switch (nombre) {
+    case 'Pepe':
+        console.log('PEEPEEEE')
+        break
+    case 'Fulano':
+        console.log('FULANITOOOO 🙃')
+        break
+    default:
+        console.log('FUERA DE AQUI')
+}
+
+*/
+
+
 let dataUsuario = { correo: "miguel@admin.com", pass: 'admin123' }
 
 let formularioIngreso = document.querySelector("#formLogin")

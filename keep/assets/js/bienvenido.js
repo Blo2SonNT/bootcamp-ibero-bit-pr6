@@ -59,6 +59,27 @@ if (nombre == 'pepe') {
 
 (nombre == 'pepe') ? console.log('eres pepe') : console.error('no eres pepe')
 
+
+function esParImpar() {
+    let numeroUsuario = prompt("Cual es el numero a consultar?")
+    if (numeroUsuario % 2 == 0) {
+        alert('El numero es par')
+    } else {
+        alert('El numero es impar')
+    }
+}
+
+
+function sumatoria() {
+    let numeroUsuario = prompt('Cual es el numero')
+    let sumaTotal = 0
+
+    for (let x = 1; x <= numeroUsuario; x++) {
+        sumaTotal = sumaTotal + x
+        console.log(sumaTotal)
+    }
+}
+
 */
 
 

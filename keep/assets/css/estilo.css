@@ -1,10 +1,23 @@
+:root {
+    --color-negro: #222;
+    --color-blanco: #e3e3e3;
+}
+
 @font-face {
     font-family: 'fuentePaginaEspecial';
     src: url(../fonts/find_cartoon.otf);
 }
 
 body {
-    background-color: #222;
+    background-color: var(--color-negro);
+}
+
+.temaNegro {
+    color: var(--color-negro) !important;
+}
+
+.temaBlanco {
+    color: var(--color-blanco) !important;
 }
 
 .letraKeep {
