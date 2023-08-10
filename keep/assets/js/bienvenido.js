@@ -1,89 +1,3 @@
-/*
-//Declarando variables a guardar en el localstorage
-let estudiantes = [
-    { nombre: "Susana", edad: 78 },
-    { nombre: "Alejandra", edad: 12 },
-]
-
-let estudiantes2 = [
-    { nombre: "Susana", edad: 78 },
-    { nombre: "Alejandra", edad: 12 },
-]
-
-let ejemplo = { pepe: 2 }
-//Guardando la información en el localstorage
-//setItem: guarda o actualiza el LS o SS
-//getItem: obtiene los valores de una llave del LS o SS
-//removeItem: elimina una llave especifica del LS o SS
-//clear: borra todo contenido del LS o SS
-//JSON.stringify:me convierte el objeto o array a texto para guardarlo en el LS o SS
-localStorage.setItem('estudiantes_ls', JSON.stringify(estudiantes))
-localStorage.setItem('estudiantes_ls_2', estudiantes2)
-localStorage.setItem('ejemplo', '[2]')
-
-let consultaLS = localStorage.getItem('estudiantes_ls')
-//JSON.parse: me trata el texto extraido del LS o SS como un objeto o array
-consultaLS = JSON.parse(consultaLS)
-
-
-localStorage.removeItem("ejemplo")
-
-
-<input type="text" class="form-control" id="iNombre" onblur="guardarNombre()">
-<select id="tipoDocumento" onchange="guardarDocumento()" class="form-control">
-    <option value="x">Seleccione una...</option>
-    <option value="Cedula">C.C</option>
-    <option value="Cedula extranjeria">C.E</option>
-    <option value="Tarjeta de identidad">T.I</option>
-</select>
-
-function guardarNombre() {
-    let nombreUsuario = document.querySelector('#iNombre').value
-    localStorage.setItem("nombre", nombreUsuario)
-}
-
-function guardarDocumento() {
-    let documentoUsuario = document.querySelector('#tipoDocumento')
-    localStorage.setItem('tipoDocumento', documentoUsuario.value)
-    documentoUsuario.classList.add('border', 'border-success', 'border-3', 'pepe')
-}
-
-//Ejemplo de condicional ternario
-
-let nombre = "miguel"
-if (nombre == 'pepe') {
-    console.log('eres pepe')
-} else {
-    console.error('no eres pepe')
-}
-
-(nombre == 'pepe') ? console.log('eres pepe') : console.error('no eres pepe')
-
-
-function esParImpar() {
-    let numeroUsuario = prompt("Cual es el numero a consultar?")
-    if (numeroUsuario % 2 == 0) {
-        alert('El numero es par')
-    } else {
-        alert('El numero es impar')
-    }
-}
-
-
-function sumatoria() {
-    let numeroUsuario = prompt('Cual es el numero')
-    let sumaTotal = 0
-
-    for (let x = 1; x <= numeroUsuario; x++) {
-        sumaTotal = sumaTotal + x
-        console.log(sumaTotal)
-    }
-}
-
-*/
-
-
-
 if (sessionStorage.getItem('login') == null) {
     location.href = 'index.html'
 } else {
@@ -107,9 +21,18 @@ if (sessionStorage.getItem('login') == null) {
                 contador++
             }
 
-            localStorage.setItem(`tituloNota${contador}`, pepeEvento.target.iTitulo.value)
-            localStorage.setItem(`nota${contador}`, pepeEvento.target.txtNota.value)
+
+            let arrNotas = []
+            if (localStorage.getItem('notas') != null) {
+                arrNotas = localStorage.getItem('notas')
+                arrNotas = JSON.parse(arrNotas)
+            }
+
+            arrNotas.push({ id: contador, titulo: pepeEvento.target.iTitulo.value, nota: pepeEvento.target.txtNota.value })
+
+            localStorage.setItem('notas', JSON.stringify(arrNotas))
             localStorage.setItem('contador', contador)
+
             pepeEvento.target.reset()
             Swal.fire({
                 title: 'La notita fue guardada',
@@ -130,16 +53,7 @@ if (sessionStorage.getItem('login') == null) {
         }
     })
 
-
-
-
-
-
-
     listarNotas()
-
-
-
 
 }
 
@@ -161,21 +75,22 @@ function listarNotas() {
         let grillaNotas = document.querySelector("#notasUsuario")
 
         grillaNotas.innerHTML = ''
-        let cantidadNotas = localStorage.getItem('contador')
+        let arrNotasUsuario = JSON.parse(localStorage.getItem("notas"))
 
-        for (let xNota = 0; xNota <= cantidadNotas; xNota++) {
+        arrNotasUsuario.forEach(notaLS => {
+            console.log('file: bienvenido.js:81 ->  notaLS:', notaLS)
             grillaNotas.innerHTML += `
-                <div class="col">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">${localStorage.getItem('tituloNota'+xNota)}</h5>
-                            <p class="card-text">${localStorage.getItem('nota'+xNota)}</p>
-                        </div>
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">${notaLS.titulo}</h5>
+                        <p class="card-text">${notaLS.nota}</p>
                     </div>
                 </div>
-            `
+            </div>
+        `
+        });
 
-        }
 
         //proceso si existen notas
         document.querySelector('#resumenNotas').innerHTML = `Tienes ${parseInt(localStorage.getItem('contador'))+1} notas almacenadas`
