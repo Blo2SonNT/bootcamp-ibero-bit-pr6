@@ -52,23 +52,25 @@
     </nav>
 
     <section class="container mt-3">
-        <div class="d-flex justify-content-end">
+        <div class="d-flex justify-content-between">
+            <button class="btn btn-danger fw-bold d-none" id="btnEliminarNotasMultiples" disabled>Eliminar notas seleccionadas</button>
             <button class="btn btn-warning fw-bold" data-bs-toggle="modal" data-bs-target="#modalNotas">Crear
                 nota</button>
         </div>
     </section>
 
 
+
     <!-- Modal -->
     <div class="modal fade" id="modalNotas" tabindex="-1" aria-labelledby="modalNotasLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
+        <div class="modal-dialog ">
+            <div class="modal-content cambioTemaUsuarioOpcion bg-dark">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="modalNotasLabel">Crear nueva nota</h1>
+                    <h1 class="modal-title fs-5 cambioTemaUsuarioOpcion" id="modalNotasLabel">Crear nueva nota</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form id="formNota">
+                    <form id="formNota" class="p-4">
                         <div class=" mb-3">
                             <input type="text" id="iTitulo" placeholder="Titulo" class="form-control">
                             <div class="fw-bold text-danger d-none" id="errorTitulo">El titulo de la nota es obligatorio
@@ -79,7 +81,7 @@
                             <div class="fw-bold text-danger d-none" id="errorNota">Ingrese la nota que desea guardar
                             </div>
                         </div>
-                        <button type="submit" id="" class="btn btn-dark w-100">Guardar nota</button>
+                        <button type="submit" id="" class="btn btn-warning fw-bold w-100">Guardar nota</button>
                     </form>
                 </div>
             </div>
@@ -87,7 +89,7 @@
     </div>
     <section class="d-flex justify-content-center align-items-center flex-column">
         <div class="container">
-            <h1 class="text-white fw-bold text-center" id="resumenNotas"></h1>
+            <h1 class="text-white fw-bold text-center cambioTemaUsuarioOpcion" id="resumenNotas"></h1>
             <div class="row row-cols-1 row-cols-md-3 g-4" id="notasUsuario"></div>
         </div>
     </section>

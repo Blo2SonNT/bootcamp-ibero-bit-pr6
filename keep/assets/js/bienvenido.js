@@ -1,3 +1,4 @@
+//cSpell:disable
 if (sessionStorage.getItem('login') == null) {
     location.href = 'index.html'
 } else {
@@ -77,14 +78,28 @@ function listarNotas() {
         grillaNotas.innerHTML = ''
         let arrNotasUsuario = JSON.parse(localStorage.getItem("notas"))
 
-        arrNotasUsuario.forEach(notaLS => {
-            console.log('file: bienvenido.js:81 ->  notaLS:', notaLS)
+        arrNotasUsuario.forEach((notaLS, posicionNota) => {
             grillaNotas.innerHTML += `
+            
             <div class="col">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">${notaLS.titulo}</h5>
+                        <div class="d-flex justify-content-between">
+                            <h5 class="card-title">${notaLS.titulo}</h5>
+                            <label class="containerChk">
+                                <input type="checkbox">
+                                <div class="checkmark"></div>
+                            </label>
+                        </div>
                         <p class="card-text">${notaLS.nota}</p>
+                        <div class="d-flex justify-content-end">
+                            <button class="btn" title="editar">
+                                <i class="fa-solid fa-pencil text-dark"></i>
+                            </button>
+                            <button class="btn botonEliminar" title="eliminar" data-posicion="${posicionNota}">
+                                <i class="fa-solid fa-trash text-danger"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -92,12 +107,60 @@ function listarNotas() {
         });
 
 
+        let chkNotas = document.querySelectorAll("input[type=checkbox]")
+        let btnEliminarNotas = document.querySelector("#btnEliminarNotasMultiples")
+        chkNotas.forEach(checkboxNota => {
+            checkboxNota.addEventListener("change", (e) => {
+                if (e.target.checked) {
+                    btnEliminarNotas.removeAttribute("disabled")
+                    btnEliminarNotas.classList.remove("d-none")
+                } else {
+                    let validacionCheckbox = document.querySelectorAll("input[type=checkbox]:checked")
+                    if (validacionCheckbox.length == 0) {
+                        btnEliminarNotas.setAttribute("disabled", "")
+                        btnEliminarNotas.classList.add("d-none")
+                    }
+                }
+            })
+        });
+        console.log('file: bienvenido.js:111 ->  chkNotas:', chkNotas)
+
+
         //proceso si existen notas
-        document.querySelector('#resumenNotas').innerHTML = `Tienes ${parseInt(localStorage.getItem('contador'))+1} notas almacenadas`
+        document.querySelector('#resumenNotas').innerHTML = `Tienes ${arrNotasUsuario.length} notas almacenadas`
+
+        let notasGrilla = document.querySelectorAll(".botonEliminar")
+        notasGrilla.forEach(boton => {
+            boton.addEventListener('click', (evento) => {
+                Swal.fire({
+                    title: '¿Seguro que desea eliminar la nota?',
+                    text: "Esta accion no sera reversible, no sea peye! .|.",
+                    icon: 'question',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Si, eliminar'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+
+                        let arrNotas = JSON.parse(localStorage.getItem('notas'))
+                        let posicionNota = evento.target.dataset.posicion
+
+                        arrNotas.splice(posicionNota, 1)
+
+                        localStorage.setItem('notas', JSON.stringify(arrNotas))
+                        listarNotas()
+                        Swal.fire(
+                            'Deleted!',
+                            'Nota eliminada!',
+                            'success'
+                        )
+                    }
+                })
+            })
+        });
+
     } else {
         document.querySelector('#resumenNotas').innerHTML = "No tienes notas almacenadas"
     }
 }
-
-
-//Mixin example
