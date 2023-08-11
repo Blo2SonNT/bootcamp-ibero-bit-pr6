@@ -87,7 +87,7 @@ function listarNotas() {
                         <div class="d-flex justify-content-between">
                             <h5 class="card-title">${notaLS.titulo}</h5>
                             <label class="containerChk">
-                                <input type="checkbox">
+                                <input type="checkbox" id="nota_${notaLS.id}">
                                 <div class="checkmark"></div>
                             </label>
                         </div>
@@ -113,17 +113,16 @@ function listarNotas() {
             checkboxNota.addEventListener("change", (e) => {
                 if (e.target.checked) {
                     btnEliminarNotas.removeAttribute("disabled")
-                    btnEliminarNotas.classList.remove("d-none")
+                    btnEliminarNotas.classList.remove("invisible")
                 } else {
                     let validacionCheckbox = document.querySelectorAll("input[type=checkbox]:checked")
                     if (validacionCheckbox.length == 0) {
                         btnEliminarNotas.setAttribute("disabled", "")
-                        btnEliminarNotas.classList.add("d-none")
+                        btnEliminarNotas.classList.add("invisible")
                     }
                 }
             })
         });
-        console.log('file: bienvenido.js:111 ->  chkNotas:', chkNotas)
 
 
         //proceso si existen notas
@@ -164,3 +163,37 @@ function listarNotas() {
         document.querySelector('#resumenNotas').innerHTML = "No tienes notas almacenadas"
     }
 }
+
+
+let botonNotasChkMultiple = document.querySelector("#btnEliminarNotasMultiples")
+botonNotasChkMultiple.addEventListener("click", () => {
+    let notasSeleccionadas = document.querySelectorAll("input[type=checkbox]:checked")
+
+    Swal.fire({
+        title: '¿Seguro que desea eliminar las notas seleccionadas?',
+        text: "Esta accion no sera reversible, no sea peye! .|.",
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si, eliminar'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            notasSeleccionadas.forEach(elementoNota => {
+                let notasUsuario = JSON.parse(localStorage.getItem("notas"))
+                let id_nota = elementoNota.id
+                id_nota = id_nota.split('_')
+                id_nota = id_nota[1]
+                let poscionNotaArray = notasUsuario.findIndex(notaCoincidencia => notaCoincidencia.id == id_nota)
+                notasUsuario.splice(poscionNotaArray, 1)
+                localStorage.setItem('notas', JSON.stringify(notasUsuario))
+                botonNotasChkMultiple.setAttribute("disabled", "")
+                botonNotasChkMultiple.classList.add("invisible")
+                listarNotas()
+            });
+        }
+    })
+
+
+
+})
