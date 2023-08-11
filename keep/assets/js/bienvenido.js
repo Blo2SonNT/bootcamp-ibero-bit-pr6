@@ -93,7 +93,7 @@ function listarNotas() {
                         </div>
                         <p class="card-text">${notaLS.nota}</p>
                         <div class="d-flex justify-content-end">
-                            <button class="btn" title="editar">
+                            <button class="btn botonEditar" title="editar">
                                 <i class="fa-solid fa-pencil text-dark"></i>
                             </button>
                             <button class="btn botonEliminar" title="eliminar" data-posicion="${posicionNota}">
@@ -158,6 +158,20 @@ function listarNotas() {
                 })
             })
         });
+
+        let btnGrillaNotas = document.querySelectorAll(".botonEditar")
+        btnGrillaNotas.forEach(botonEditar => {
+            botonEditar.addEventListener("click", () => {
+                document.querySelector("#botonCrearNota").click()
+
+
+
+
+
+
+            })
+        });
+
 
     } else {
         document.querySelector('#resumenNotas').innerHTML = "No tienes notas almacenadas"
