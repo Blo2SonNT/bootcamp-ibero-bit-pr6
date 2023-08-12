@@ -53,7 +53,8 @@
 
     <section class="container mt-3">
         <div class="d-flex justify-content-between">
-            <button class="btn btn-danger fw-bold invisible" id="btnEliminarNotasMultiples" disabled>Eliminar notas seleccionadas</button>
+            <button class="btn btn-danger fw-bold invisible" id="btnEliminarNotasMultiples" disabled>Eliminar notas
+                seleccionadas</button>
             <button class="btn btn-warning fw-bold" data-bs-toggle="modal" data-bs-target="#modalNotas" id="botonCrearNota">Crear
                 nota</button>
         </div>
@@ -67,7 +68,7 @@
             <div class="modal-content cambioTemaUsuarioOpcion bg-dark">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5 cambioTemaUsuarioOpcion" id="modalNotasLabel">Crear nueva nota</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" id="btnCerrarModal" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <form id="formNota" class="p-4">
@@ -81,7 +82,8 @@
                             <div class="fw-bold text-danger d-none" id="errorNota">Ingrese la nota que desea guardar
                             </div>
                         </div>
-                        <button type="submit" id="" class="btn btn-warning fw-bold w-100">Guardar nota</button>
+                        <button type="submit" id="btnGuardarNota" class="btn btn-warning fw-bold w-100">Guardar
+                            nota</button>
                     </form>
                 </div>
             </div>

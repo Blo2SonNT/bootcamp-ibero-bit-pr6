@@ -208,3 +208,9 @@ body {
     border-width: 0 0.15em 0.15em 0;
     transform: rotate(45deg);
 }
+
+.botonPepe {
+    background-color: #00ff00;
+    width: 100%;
+    color: #000;
+}

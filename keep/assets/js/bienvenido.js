@@ -93,8 +93,8 @@ function listarNotas() {
                         </div>
                         <p class="card-text">${notaLS.nota}</p>
                         <div class="d-flex justify-content-end">
-                            <button class="btn botonEditar" title="editar">
-                                <i class="fa-solid fa-pencil text-dark"></i>
+                            <button class="btn botonEditar" title="editar" data-id-nota="${notaLS.id}">
+                                <i class="fa-solid fa-pencil text-dark" data-id-nota="${notaLS.id}"></i>
                             </button>
                             <button class="btn botonEliminar" title="eliminar" data-posicion="${posicionNota}">
                                 <i class="fa-solid fa-trash text-danger"></i>
@@ -149,11 +149,12 @@ function listarNotas() {
 
                         localStorage.setItem('notas', JSON.stringify(arrNotas))
                         listarNotas()
-                        Swal.fire(
-                            'Deleted!',
-                            'Nota eliminada!',
-                            'success'
-                        )
+                        Swal.fire({
+                            title: "Nota eliminada",
+                            icon: 'success',
+                            confirmButtonColor: '#3085d6',
+                            confirmButtonText: 'Aceptar'
+                        })
                     }
                 })
             })
@@ -161,14 +162,27 @@ function listarNotas() {
 
         let btnGrillaNotas = document.querySelectorAll(".botonEditar")
         btnGrillaNotas.forEach(botonEditar => {
-            botonEditar.addEventListener("click", () => {
+            botonEditar.addEventListener("click", (evento) => {
                 document.querySelector("#botonCrearNota").click()
+                document.querySelector("#modalNotasLabel").innerText = "Editar nota"
+                let notasUsuario = JSON.parse(localStorage.getItem("notas"))
+                let idNotaBusqueda = evento.target.dataset.idNota
+                let notaAEditar = notasUsuario.filter(notaEditar => notaEditar.id == idNotaBusqueda)
+                let posicionNotaArray = notasUsuario.findIndex(posNota => posNota.id == idNotaBusqueda)
+                let formularioModal = document.querySelector("#formNota")
 
+                formularioModal.iTitulo.value = notaAEditar[0].titulo
+                formularioModal.txtNota.value = notaAEditar[0].nota
 
-
-
-
-
+                document.querySelector("#btnGuardarNota").classList.add("d-none")
+                let botonEditar = document.createElement("button")
+                botonEditar.classList.add("btn", "botonPepe")
+                botonEditar.innerText = "Actualizar nota"
+                botonEditar.type = "button"
+                botonEditar.id = "btnEditarNota"
+                botonEditar.setAttribute("style", "color: yellow")
+                botonEditar.setAttribute("onclick", `guardarEdicion(${posicionNotaArray})`)
+                formularioModal.appendChild(botonEditar)
             })
         });
 
@@ -207,7 +221,22 @@ botonNotasChkMultiple.addEventListener("click", () => {
             });
         }
     })
-
-
-
 })
+
+
+
+function guardarEdicion(posicionNota) {
+    let formularioModal = document.querySelector("#formNota")
+    let notasUsuario = JSON.parse(localStorage.getItem('notas'))
+    let infoNota = notasUsuario[posicionNota]
+    infoNota.titulo = formularioModal.iTitulo.value
+    infoNota.nota = formularioModal.txtNota.value
+    notasUsuario[posicionNota] = infoNota
+    localStorage.setItem('notas', JSON.stringify(notasUsuario))
+    listarNotas()
+    document.querySelector("#btnCerrarModal").click()
+    document.querySelector("#btnEditarNota").remove()
+    document.querySelector("#btnGuardarNota").classList.remove("d-none")
+    document.querySelector("#modalNotasLabel").innerText = "Crear nueva nota"
+    formularioModal.reset()
+}
