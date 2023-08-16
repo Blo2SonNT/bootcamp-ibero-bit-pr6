@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+</head>
+
+<body>
+    <form id="frmUsuario">
+        <input type="number" min="2" id="iNummero" placeholder="Ingrese su numero">
+        <button type="submit">Calcular</button>
+    </form>
+
+    <div class="container">
+        <canvas id="grafico"></canvas>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        //cSpell:disable
+        let formulario = document.querySelector("#frmUsuario")
+        formulario.addEventListener("submit", (evento) => {
+            evento.preventDefault()
+            let numeroUsuario = evento.target.iNummero.value
+            if (numeroUsuario == "") {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Bruto bestia animal salvaje, ingrese el pinche numero!',
+                    iconColor: '#fa1515',
+                    confirmButton: '#000'
+                })
+            } else {
+                let numerosCollatz = []
+                while (numeroUsuario !== 1) {
+                    if (numeroUsuario % 2 == 0) {
+                        numeroUsuario = numeroUsuario / 2
+                    } else {
+                        numeroUsuario = numeroUsuario * 3 + 1
+                    }
+                    numerosCollatz.push(numeroUsuario)
+                }
+                console.log(numerosCollatz)
+
+                let canvaDom = document.querySelector("#grafico")
+
+                let labelGrafico = []
+                numerosCollatz.forEach((elemento, indice) => {
+                    labelGrafico.push(`item ${indice + 1}`)
+                });
+
+                new Chart(canvaDom, {
+                    type: 'line',
+                    data: {
+                        labels: labelGrafico,
+                        datasets: [{
+                            label: '# of Votes',
+                            data: numerosCollatz,
+                            borderWidth: 1,
+                            borderColor: "rgb(17, 255, 84)",
+                            backgroundColor: "rgb(17, 255, 84)",
+                        }]
+                    }
+                })
+            }
+
+        });
+        // si es par / 2
+        //si es impar *3 + 1
+    </script>
+</body>
+
+</html>
