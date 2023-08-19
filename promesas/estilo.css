@@ -1,0 +1,17 @@
+.estadoPersonaje {
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+}
+
+.alive {
+    background-color: #23d137;
+}
+
+.dead {
+    background-color: #ff0b0b;
+}
+
+.unknown {
+    background-color: #5f5f5f;
+}
