@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+</head>
+
+<body>
+    <section class="container">
+        <div class="row">
+            <section class="col-6">
+                <h2>punto 1</h2>
+                <form id="punto1">
+                    <input class="form-control" id="numeroSumatoria" placeholder="ingrese el numero para la sumatoria" type="text">
+                    <button type="submit" class="btn btn-dark">Calcular</button>
+                    <h3 id="resultadoP1"></h3>
+                </form>
+            </section>
+
+            <script>
+                let btnPunto1 = document.querySelector("#punto1")
+                btnPunto1.addEventListener('submit', (evento) => {
+                    evento.preventDefault()
+                    let sumatoria = 0
+                    for (let p1 = 0; p1 <= evento.target.numeroSumatoria.value; p1++) {
+                        sumatoria = sumatoria + p1
+                    }
+                    document.querySelector("#resultadoP1").innerHTML = `El resultado es: ${sumatoria}`
+                })
+            </script>
+
+
+            <section class="col-6">
+                <h2>punto 2</h2>
+                <form id="punto2">
+                    <input class="form-control" id="numeroParImapr" placeholder="ingrese el numero para saber si es par o impar" type="text">
+                    <button type="submit" class="btn btn-dark">Calcular</button>
+                    <h3 id="resultadoP2"></h3>
+                </form>
+            </section>
+
+            <script>
+                let btnPunto2 = document.querySelector("#punto2")
+                btnPunto2.addEventListener("submit", (evento) => {
+                    evento.preventDefault()
+
+                    if (evento.target.numeroParImapr.value != "") {
+                        if (evento.target.numeroParImapr.value % 2 == 0) {
+                            document.querySelector("#resultadoP2").innerHTML = `El numero es par`
+                        } else {
+                            document.querySelector("#resultadoP2").innerHTML = `El numero es impar`
+                        }
+                    } else {
+                        document.querySelector("#resultadoP2").innerHTML = `Ingrese el pinchi numero`
+                    }
+                })
+            </script>
+
+
+            <section class="col-6">
+                <h2>punto 3</h2>
+                <form id="punto3">
+                    <select class="form-control" id="optGeneroP3">
+                        <option value="hombre">HOMBRE</option>
+                        <option value="mujer">MUJER</option>
+                    </select>
+                    <input class="form-control" id="edadP3" placeholder="ingrese su edad" type="text">
+                    <button type="submit" class="btn btn-dark">Validar</button>
+                    <h3 id="resultadoP3"></h3>
+                </form>
+            </section>
+
+            <script>
+                let btnPunto3 = document.querySelector("#punto3")
+                btnPunto3.addEventListener("submit", (evento) => {
+                    evento.preventDefault()
+
+                    let genero = evento.target.optGeneroP3.value
+                    let edad = evento.target.edadP3.value
+
+                    if (edad <= 10 || edad >= 18) {
+                        if (genero == 'hombre') {
+                            if (edad <= 10) {
+                                document.querySelector("#resultadoP3").innerHTML = `Ganaste una pizza de 3 carnes con un juguito`
+                            } else if (edad >= 18) {
+                                document.querySelector("#resultadoP3").innerHTML = `Ganaste una pizza de 3 carnes con una pola`
+                            }
+                        } else if (genero == 'mujer') {
+                            if (edad <= 10) {
+                                document.querySelector("#resultadoP3").innerHTML = `Ganaste una hawaina con un juguito`
+                            } else if (edad >= 18) {
+                                document.querySelector("#resultadoP3").innerHTML = `Ganaste una hawaina con una pola`
+                            }
+                        }
+                    } else {
+                        document.querySelector("#resultadoP3").innerHTML = `No gano nada`
+                    }
+
+                })
+            </script>
+
+
+            <section class="col-6">
+                <h2>punto 4</h2>
+                <ul class="list-group" id="menuP4"></ul>
+                <form id="punto4">
+                    <input class="form-control" id="platoUsuarioP4" placeholder="Digite que quiere de comer" type="text">
+                    <button type="submit" class="btn btn-dark">SOLICITAR</button>
+                    <h3 id="resultadoP4"></h3>
+                </form>
+            </section>
+
+            <script>
+                let menuP4Lista = [{
+                    id: 1,
+                    nombre: "Pizza de 3 carnes",
+                    precio: 6000
+                }, {
+                    id: 2,
+                    nombre: "Pizza de pollo",
+                    precio: 6500
+                }, {
+                    id: 3,
+                    nombre: "Coca cola",
+                    precio: 4000
+                }, {
+                    id: 4,
+                    nombre: "Fresas con crema",
+                    precio: 2500
+                }]
+
+                let divMenu = document.querySelector("#menuP4")
+                menuP4Lista.forEach(comida => {
+                    divMenu.innerHTML += `<li class="list-group-item">${comida.nombre} - $: ${comida.precio}</li>`
+                });
+
+
+
+                let btnPunto4 = document.querySelector("#punto4")
+                let menuUsuario = []
+                btnPunto4.addEventListener("submit", (evento) => {
+                    evento.preventDefault()
+                    let solicitudUsuario = evento.target.platoUsuarioP4.value
+                    if (solicitudUsuario != "pagar") {
+                        let validacionComida = menuP4Lista.filter(plato => plato.nombre == solicitudUsuario)
+                        menuUsuario.push(validacionComida[0])
+                        document.querySelector("#resultadoP4").innerHTML = `Su solicitud fue agregada - ${validacionComida[0].nombre}`
+                    } else {
+                        let precioTotal = 0
+                        menuUsuario.forEach(pedido => {
+                            precioTotal = precioTotal + pedido.precio
+                        });
+                        document.querySelector("#resultadoP4").innerHTML = `El precio a pagar es: $ ${precioTotal}`
+                        menuUsuario = []
+                        console.log("precio total")
+                    }
+                })
+            </script>
+
+        </div>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+</body>
+
+</html>
