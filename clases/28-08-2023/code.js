@@ -123,11 +123,12 @@ let pepepe2 = new CuentaBancaria(20000)
 
 console.log(pepepe2)
 
-class xx {
-    constructor(direccion, ejemplo) {
-
+class Persona {
+    constructor(nombre, edad) {
+        this.nombre = nombre
+        this.edad = edad
     }
 }
 
-
-let u = new xx(pepepe2)
+let xx1 = new Persona("pepe", 34)
+console.log(xx1)

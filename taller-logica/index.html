@@ -160,6 +160,58 @@
                 })
             </script>
 
+            <section class="col-6">
+                <h2>punto 5</h2>
+                <form id="punto5">
+                    <input class="form-control" id="numeroTablaP5" placeholder="Ingrese el numero de la tabla de multiplicar" type="number" min="0">
+                    <input class="form-control" id="limiteNumeroTablaP5" placeholder="Ingrese el numero hasta donde quiere la tabla de multiplicar" type="number" min="10">
+                    <button type="submit" class="btn btn-dark">Calcular</button>
+                    <div id="resultadoP5"></div>
+                </form>
+            </section>
+
+            <script>
+                let btnPunto5 = document.getElementById("punto5");
+                btnPunto5.addEventListener("submit", (evento) => {
+                    evento.preventDefault()
+                    let nroTabla = evento.target.numeroTablaP5.value
+                    let nroLimiteTabla = evento.target.limiteNumeroTablaP5.value
+                    let divHtmlP5 = document.querySelector("#resultadoP5")
+                    divHtmlP5.innerHTML = ""
+                    for (let y = 1; y <= nroLimiteTabla; y++) {
+                        divHtmlP5.innerHTML += ` 
+                            <div>${nroTabla} x ${y} = ${nroTabla * y}</div>
+                        `
+                    }
+                })
+            </script>
+
+
+            <section class="col-6">
+                <h2>punto 6</h2>
+                <form id="punto6">
+                    <input class="form-control" id="notaP6" placeholder="Ingrese su nota" type="text">
+                    <button type="submit" class="btn btn-dark">Calcular</button>
+                    <div id="resultadoP6"></div>
+                </form>
+            </section>
+
+            <script>
+                let btnPunto6 = document.querySelector("#punto6")
+                btnPunto6.addEventListener("submit", (evento) => {
+                    let valorMatricula = 1000000
+                    let notaUsuario = parseFloat(evento.target.notaP6.value)
+                    evento.preventDefault()
+                    if (notaUsuario >= 3 && notaUsuario <= 4) {
+                        document.querySelector("#resultadoP6").innerHTML = `El total de su matricula es: ${valorMatricula*0.95}`
+                    } else if (notaUsuario >= 4.1) {
+                        document.querySelector("#resultadoP6").innerHTML = `El total de su matricula es: ${valorMatricula*0.50}`
+                    } else {
+                        document.querySelector("#resultadoP6").innerHTML = `El total de su matricula es: ${valorMatricula}`
+                    }
+                })
+            </script>
+
         </div>
     </section>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>

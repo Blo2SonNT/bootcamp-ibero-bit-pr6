@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <section class="container" id="cartas">
+
+    </section>
+
+    <script>
+        // window.nombre = "PEPE"
+
+        let personaje1 = {
+            nombre: "Kirito",
+            img: "https://i.pinimg.com/1200x/73/6e/00/736e00d5e17a58d99bb551e54cdc0c82.jpg"
+        }
+
+        let personaje2 = {
+            nombre: "Asuna",
+            img: "https://i.pinimg.com/736x/f4/93/67/f49367f6d87cf84e100d964ca5f50580.jpg"
+        }
+
+        let personaje3 = {
+            nombre: "Yumeko",
+            img: "https://i.pinimg.com/1200x/b2/87/5b/b2875b5ded562661eee2936fbfac0ccb.jpg"
+        }
+
+
+        function mostrarInfo(serie, capitulos) {
+            return `
+                <div class="card mb-3" style="max-width: 540px;">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="${this.img}" class="img-fluid rounded-start" alt="...">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">${this.nombre}</h5>
+                                <p class="card-text">El personaje ${this.nombre} pertenece a la serie ${serie}, que tiene ${capitulos} capitulos</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `
+        }
+        let divCartas = document.querySelector("#cartas")
+
+        divCartas.innerHTML = mostrarInfo.call(personaje1, 'SAO', 56)
+        divCartas.innerHTML += mostrarInfo.apply(personaje2, ['Sword art online', 63])
+
+
+        const llamadaConBind = mostrarInfo.bind(personaje3)
+        divCartas.innerHTML += llamadaConBind('Kakegurui', 12)
+    </script>
+</body>
+
+</html>
