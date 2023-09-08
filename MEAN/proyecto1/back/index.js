@@ -4,25 +4,12 @@ const conectarDB = require('./config/db')
 const app = express()
 conectarDB()
 
+app.use(express.json())
+    //rutas - endpoint
 
-//rutas - endpoint
+app.use('/api/v1', require('./routes/routes'))
 
 
-app.get('/api', (req, res) => {
-    res.send('Visitando la api')
-})
-app.post('/api/llamado2', (req, res) => {
-    res.send('llamando la api con POST 1')
-})
-app.post('/api', (req, res) => {
-    res.send('llamando la api con POST 2')
-})
-app.put('/api', (req, res) => {
-    res.send('llamando la api con PUT')
-})
-app.delete('/api', (req, res) => {
-    res.send('llamando la api con DELETE')
-})
 
 
 app.listen(3000, () => {
