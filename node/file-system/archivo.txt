@@ -1,0 +1,9 @@
+hola mundo desde node usando FS 
+ otra cosa 
+ otra cosa 
+ otra cosa 
+ otra cosa 
+ otra cosa 
+ otra cosa 
+ otra cosa 
+ otra cosa
