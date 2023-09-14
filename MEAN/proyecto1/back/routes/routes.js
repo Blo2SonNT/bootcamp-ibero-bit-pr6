@@ -5,7 +5,7 @@ const personajesController = require('../controllers/personajes.controller')
 router.get('/obtener-personajes', personajesController.obtenerTodosLosPersonajes)
 router.get('/buscar-personaje/:id', personajesController.obtenerUnSoloPersonaje)
 router.post('/crear-personaje', personajesController.crearPersonaje)
-router.put('/', personajesController.actualizarPersonaje)
+router.put('/actualizar-personaje/:id', personajesController.actualizarPersonaje)
 router.delete('/eliminar-personaje/:id', personajesController.eliminarPersonaje)
 
 

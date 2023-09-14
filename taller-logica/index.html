@@ -108,12 +108,13 @@
                 <ul class="list-group" id="menuP4"></ul>
                 <form id="punto4">
                     <input class="form-control" id="platoUsuarioP4" placeholder="Digite que quiere de comer" type="text">
-                    <button type="submit" class="btn btn-dark">SOLICITAR</button>
+                    <button type="submit" id="peye" class="btn btn-dark">SOLICITAR</button>
                     <h3 id="resultadoP4"></h3>
                 </form>
             </section>
 
             <script>
+                console.log(document.querySelector("#peye"))
                 let menuP4Lista = [{
                     id: 1,
                     nombre: "Pizza de 3 carnes",
