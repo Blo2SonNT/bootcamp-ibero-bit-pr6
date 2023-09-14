@@ -6,7 +6,7 @@ router.get('/obtener-personajes', personajesController.obtenerTodosLosPersonajes
 router.get('/buscar-personaje/:id', personajesController.obtenerUnSoloPersonaje)
 router.post('/crear-personaje', personajesController.crearPersonaje)
 router.put('/', personajesController.actualizarPersonaje)
-router.delete('/', personajesController.eliminarPersonaje)
+router.delete('/eliminar-personaje/:id', personajesController.eliminarPersonaje)
 
 
 module.exports = router

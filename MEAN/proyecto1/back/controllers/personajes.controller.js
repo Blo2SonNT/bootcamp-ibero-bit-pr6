@@ -1,7 +1,7 @@
 const Personaje = require('../models/Personajes')
 
 exports.crearPersonaje = async(req, res) => {
-    // console.log(req.body)
+    console.log(req.ip)
     try {
         let personajeModel
         personajeModel = new Personaje(req.body)
@@ -14,6 +14,8 @@ exports.crearPersonaje = async(req, res) => {
 }
 
 exports.obtenerTodosLosPersonajes = async(req, res) => {
+    console.log(req.ip)
+
     try {
         const personajesData = await Personaje.find()
         res.json(personajesData)
@@ -24,6 +26,8 @@ exports.obtenerTodosLosPersonajes = async(req, res) => {
 }
 
 exports.obtenerUnSoloPersonaje = async(req, res) => {
+    console.log(req.ip)
+
     try {
         let regexIdMongo = /^[0-9a-fA-F]{24}$/
         if (regexIdMongo.test(req.params.id)) {
@@ -43,9 +47,28 @@ exports.obtenerUnSoloPersonaje = async(req, res) => {
 }
 
 exports.actualizarPersonaje = (req, res) => {
+    console.log(req.ip)
+
     res.send("actualizando personaje")
 }
 
-exports.eliminarPersonaje = (req, res) => {
-    res.send("borrando personaje")
+exports.eliminarPersonaje = async(req, res) => {
+    console.log(req.ip)
+
+    try {
+        let regexIdMongo = /^[0-9a-fA-F]{24}$/
+        if (regexIdMongo.test(req.params.id)) {
+            const personajeData = await Personaje.findById(req.params.id)
+            if (!personajeData) {
+                res.status(404).send('El id proporcionado no se encuentra')
+            } else {
+                await Personaje.findOneAndRemove({ _id: req.params.id })
+                res.send("Personaje eliminado")
+            }
+
+        }
+    } catch (error) {
+        console.log(error)
+        res.status(502).send('Ups... ocurrió algo en el proceso, comuníquese con el administrador')
+    }
 }
