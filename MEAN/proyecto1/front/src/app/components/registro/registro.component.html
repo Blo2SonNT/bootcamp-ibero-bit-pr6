@@ -1,1 +1,25 @@
-<h1>Registro</h1>
+<div class="bg-general-skyrim">
+    <div class="container">
+        <div class="row">
+            <div class="col-4">
+                <form (ngSubmit)="enviarFormulario()" class="py-4">
+                    <div class="form-floating mb-3">
+                        <input type="email" class="form-control" [(ngModel)]="nombre" name="nombre" id="floatingInput" placeholder="name@example.com">
+                        <label for="floatingInput">Email address</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="email" class="form-control" [(ngModel)]="apellido" name="apellido" id="floatingInput" placeholder="name@example.com">
+                        <label for="floatingInput">Email address</label>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                </form>
+            </div>
+            <div class="col-8">
+                <img src="assets/img/feminista/1.jpg" #feminista alt="">
+                <!-- <div #miElemento class="negro cuadro"></div> -->
+                <button type="button" (click)="cambiarImagen()" class="btn btn-danger">Oprimeme!</button>
+            </div>
+        </div>
+    </div>
+</div>

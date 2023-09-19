@@ -1,0 +1,12 @@
+.cuadro {
+    width: 300px;
+    height: 300px;
+}
+
+.negro {
+    background-color: #000000;
+}
+
+.amarillo {
+    background-color: #d6ff64;
+}

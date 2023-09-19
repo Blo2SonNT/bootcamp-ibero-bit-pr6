@@ -1,3 +1,93 @@
-.peye {
-    background-color: aqua;
+.bgSkyrim1 {
+    background-position: right !important;
+}
+
+.bgSkyrim2 {
+    background-position: 50% -89px !important;
+}
+
+.bgSkyrim3 {
+    background-position: left !important;
+}
+
+.cardUI {
+    height: 350px;
+    border-radius: 4px;
+    background: #212121;
+    display: flex;
+    gap: 5px;
+    padding: .4em;
+}
+
+.cardUI p {
+    height: 100%;
+    flex: 1;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: all .5s;
+    background: #212121;
+    border: 1px solid #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cardUI p:hover {
+    flex: 4;
+}
+
+.cardUI p span {
+    min-width: 14em;
+    padding: .5em;
+    text-align: center;
+    transform: rotate(-90deg);
+    transition: all .5s;
+    text-transform: uppercase;
+    color: #ffffff;
+    letter-spacing: .1em;
+}
+
+.cardUI p:hover span {
+    transform: rotate(0);
+}
+
+.card2 {
+    width: 100%;
+    height: 300px;
+    background-image: linear-gradient(163deg, #373737 0%, #000000 100%);
+    border-radius: 20px;
+    transition: all .3s;
+}
+
+.card3 {
+    width: 100%;
+    height: 300px;
+    background-image: linear-gradient(163deg, #373737 0%, #000000 100%);
+    border-radius: 15px;
+    transition: all .2s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card3:hover {
+    transform: scale(0.98);
+    border-radius: 20px;
+}
+
+.card3 img {
+    transition: all .8s;
+}
+
+.card2:hover {
+    box-shadow: 0px 0px 30px 1px rgba(255, 200, 0, 0.3);
+}
+
+.card2:hover .card3 img {
+    border-radius: 15px;
+}
+
+.iconoMultimedia {
+    font-size: 5rem;
 }

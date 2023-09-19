@@ -1,5 +1,49 @@
-<section class="peye d-flex justify-content-center align-items-center flex-column">
-    <h2>El inicio de todo un mundo por explorar</h2>
-    <img src="assets/img/bob.webp" alt="">
-    <h1>Imaginación</h1>
+<section class="bg-general-skyrim" style="background: url(assets/img/fondo.png);">
+
+    <div class="cardUI">
+        <p class="bgSkyrim1" style="background: url(assets/img/fondo2.jpeg);">
+            <span class="fw-bold">PERSONAJES</span>
+        </p>
+        <p class="bgSkyrim2" style="background: url(assets/img/fondo2.jpeg);">
+            <span class="fw-bold">HECHIZOS</span>
+        </p>
+        <p class="bgSkyrim3" style="background: url(assets/img/fondo2.jpeg);">
+            <span class="fw-bold">LUGARES</span>
+        </p>
+    </div>
+
+    <section class="d-flex justify-content-center align-items-center py-5 flex-column">
+        <h1 class="text-white fw-bold text-center py-5 ">Banda sonora</h1>
+        <i (click)="audioPagina()" #audioPlayer class=" fa-solid fa-circle-play text-white iconoMultimedia"></i>
+    </section>
+
+    <section class="pb-5 ">
+        <div class="container pty-5 ">
+            <h1 class="text-white fw-bold text-center py-5 ">Personajes</h1>
+            <div class="row row-cols-1 row-cols-md-3 g-4 ">
+                <div class="col ">
+                    <div class="card2 ">
+                        <div class="card3 p-4 ">
+                            <img class="w-100" src="assets/img/personajes/alduin.png">
+                        </div>
+                    </div>
+                </div>
+                <div class="col ">
+                    <div class="card2 ">
+                        <div class="card3 p-4 ">
+                            <img class="w-100" src="assets/img/personajes/Dovahkiin.png">
+                        </div>
+                    </div>
+                </div>
+                <div class="col ">
+                    <div class="card2 ">
+                        <div class="card3 p-4 ">
+                            <img class="w-100" src="assets/img/personajes/lydia.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
 </section>
