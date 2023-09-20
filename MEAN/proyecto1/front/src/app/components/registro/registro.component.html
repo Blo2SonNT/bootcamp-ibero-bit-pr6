@@ -2,23 +2,39 @@
     <div class="container">
         <div class="row">
             <div class="col-4">
-                <form (ngSubmit)="enviarFormulario()" class="py-4">
-                    <div class="form-floating mb-3">
-                        <input type="email" class="form-control" [(ngModel)]="nombre" name="nombre" id="floatingInput" placeholder="name@example.com">
-                        <label for="floatingInput">Email address</label>
+                <form [formGroup]="formularioRegistro" (ngSubmit)="enviarFormulario()" class="py-4">
+                    <div class="mb-3">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" formControlName="nombre">
+                            <label for="floatingInput">Nombre</label>
+                        </div>
+                        <div *ngIf="formularioRegistro.get('nombre')!.hasError('required') && formularioRegistro.get('nombre')!.touched" class="fw-bold text-danger">Nombre es requerido</div>
+                        <div *ngIf="formularioRegistro.get('nombre')!.hasError('pattern') && formularioRegistro.get('nombre')!.touched" class="fw-bold text-danger">Nombre invalido</div>
                     </div>
-                    <div class="form-floating mb-3">
-                        <input type="email" class="form-control" [(ngModel)]="apellido" name="apellido" id="floatingInput" placeholder="name@example.com">
-                        <label for="floatingInput">Email address</label>
+                    <div class="mb-3">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" formControlName="edad">
+                            <label for="floatingInput">Edad</label>
+                        </div>
+                        <div *ngIf="formularioRegistro.get('edad')!.hasError('required') && formularioRegistro.get('edad')!.touched" class="fw-bold text-danger">La edad es requerido</div>
+                        <div *ngIf="formularioRegistro.get('edad')!.hasError('pattern') && formularioRegistro.get('edad')!.touched" class="fw-bold text-danger">La edad es invalida</div>
                     </div>
-
-                    <button type="submit" class="btn btn-primary">Enviar</button>
+                    <div class="mb-3">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" formControlName="url_imagen">
+                            <label for="floatingInput">Url imagen</label>
+                        </div>
+                        <div *ngIf="formularioRegistro.get('url_imagen')!.hasError('required') && formularioRegistro.get('url_imagen')!.touched" class="fw-bold text-danger">La url de la imagen es requerida</div>
+                    </div>
+                    <button type="submit" [disabled]="formularioRegistro.invalid" class="btn btn-primary fw-bold w-100">Enviar</button>
                 </form>
             </div>
             <div class="col-8">
-                <img src="assets/img/feminista/1.jpg" #feminista alt="">
-                <!-- <div #miElemento class="negro cuadro"></div> -->
-                <button type="button" (click)="cambiarImagen()" class="btn btn-danger">Oprimeme!</button>
+                <div class="d-flex flex-column justify-content-center align-items-center">
+                    <img class="w-50" src="assets/img/feminista/1.jpg" #feminista alt="">
+                    <!-- <div #miElemento class="negro cuadro"></div> -->
+                    <button type="button" (click)="cambiarImagen()" class="btn btn-danger">Oprimeme!</button>
+                </div>
             </div>
         </div>
     </div>

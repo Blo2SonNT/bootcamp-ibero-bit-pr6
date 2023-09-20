@@ -1,4 +1,5 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 
 @Component({
     selector: 'app-registro',
@@ -10,14 +11,24 @@ export class RegistroComponent {
     @ViewChild('miElemento') miCuadro!: ElementRef
     @ViewChild('feminista') imagenFeminista!: ElementRef
 
-    nombre?: string
-    apellido?: string
+
+    formularioRegistro: FormGroup
+    regexAlfabetico = /^[A-Za-z ]+$/
+    regexSoloNumeros = /^[0-9]+$/
+
+
+    constructor(private fb: FormBuilder){
+
+        this.formularioRegistro = this.fb.group({
+            nombre : ['', [Validators.required, Validators.pattern(this.regexAlfabetico)]],
+            edad : ['', [Validators.required, Validators.pattern(this.regexSoloNumeros)]],
+            url_imagen: ['assets/img/imgDefecto/png', [Validators.required]]
+        })
+
+    }
 
     enviarFormulario(){
-        console.log(`{
-            nombre: ${this.nombre},
-            apellido: ${this.apellido}
-        }`)
+        console.log(this.formularioRegistro)
     }
 
     cambiarColor(){
