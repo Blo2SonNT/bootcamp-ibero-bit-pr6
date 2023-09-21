@@ -1,4 +1,5 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild, OnInit } from '@angular/core';
+import { PersonajesService } from "src/app/services/personajes.service";
 
 @Component({
     selector: 'app-inicio',
@@ -10,10 +11,22 @@ export class InicioComponent {
 
     audio: HTMLAudioElement;
 
-    constructor() {
+    constructor(private _personajeService: PersonajesService) {
         this.audio = new Audio();
         this.audio.src = 'assets/audio/song-skyrim.mp3';
         // this.audio.play();
+    }
+
+    ngOnInit():void{
+        this.obtenerPersonajes()
+    }
+
+    obtenerPersonajes(){
+        this._personajeService.getPersonajes().subscribe(data => {
+            console.log(data)
+        }, error => {
+            console.log(error)
+        })
     }
 
     audioPagina() {

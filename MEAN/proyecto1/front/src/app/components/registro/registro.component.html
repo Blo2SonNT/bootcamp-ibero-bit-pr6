@@ -21,10 +21,10 @@
                     </div>
                     <div class="mb-3">
                         <div class="form-floating">
-                            <input type="text" class="form-control" formControlName="url_imagen">
+                            <input type="text" class="form-control" formControlName="urlImagen">
                             <label for="floatingInput">Url imagen</label>
                         </div>
-                        <div *ngIf="formularioRegistro.get('url_imagen')!.hasError('required') && formularioRegistro.get('url_imagen')!.touched" class="fw-bold text-danger">La url de la imagen es requerida</div>
+                        <div *ngIf="formularioRegistro.get('urlImagen')!.hasError('required') && formularioRegistro.get('urlImagen')!.touched" class="fw-bold text-danger">La url de la imagen es requerida</div>
                     </div>
                     <button type="submit" [disabled]="formularioRegistro.invalid" class="btn btn-primary fw-bold w-100">Enviar</button>
                 </form>

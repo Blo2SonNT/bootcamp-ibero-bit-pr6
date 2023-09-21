@@ -10,6 +10,7 @@ import { PiePaginaComponent } from './components/pie-pagina/pie-pagina.component
 import { RegistroComponent } from './components/registro/registro.component';
 import { IngresoComponent } from './components/ingreso/ingreso.component';
 
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
     declarations: [
@@ -24,7 +25,8 @@ import { IngresoComponent } from './components/ingreso/ingreso.component';
         BrowserModule,
         AppRoutingModule,
         FormsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        HttpClientModule
     ],
     providers: [],
     bootstrap: [AppComponent]
