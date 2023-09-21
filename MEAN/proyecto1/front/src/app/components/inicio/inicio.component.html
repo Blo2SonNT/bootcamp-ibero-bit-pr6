@@ -16,19 +16,20 @@
         <h1 class="text-white fw-bold text-center py-5 ">Banda sonora</h1>
         <i (click)="audioPagina()" #audioPlayer class=" fa-solid fa-circle-play text-white iconoMultimedia"></i>
     </section>
-
+    {{ variableEjemplo }}
     <section class="pb-5 ">
         <div class="container pty-5 ">
             <h1 class="text-white fw-bold text-center py-5 ">Personajes</h1>
             <div class="row row-cols-1 row-cols-md-3 g-4 ">
-                <div class="col ">
+                <div class="col" *ngFor="let personaje of listaPersonajes">
                     <div class="card2 ">
-                        <div class="card3 p-4 ">
-                            <img class="w-100" src="assets/img/personajes/alduin.png">
+                        <div class="card3 p-4 flex-column">
+                            <img class="w-100" src="{{personaje.urlImagen}}">
+                            <h4 class="text-white">{{ personaje.nombre }}</h4>
                         </div>
                     </div>
                 </div>
-                <div class="col ">
+                <!-- <div class="col ">
                     <div class="card2 ">
                         <div class="card3 p-4 ">
                             <img class="w-100" src="assets/img/personajes/Dovahkiin.png">
@@ -41,7 +42,7 @@
                             <img class="w-100" src="assets/img/personajes/lydia.png">
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </section>
