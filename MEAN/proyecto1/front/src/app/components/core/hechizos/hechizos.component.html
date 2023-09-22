@@ -1,0 +1,80 @@
+<section class="container my-5">
+    <h1 class="text-center text-uppercase fw-bold mb-4">Hechizos</h1>
+    <div class="row">
+        <div class="col-4 offset-4">
+            <form [formGroup]="hechizoFormulario" (ngSubmit)="agregarHechizo()">
+                <div class="mb-3">
+                    <label for="txtInvocacion" class="form-label">Palabra de hechizo</label>
+                    <input type="text" class="form-control" id="txtInvocacion" formControlName="invocacion">
+                    <div class="fw-bold text-danger" *ngIf="hechizoFormulario.get('invocacion')?.hasError('required') && hechizoFormulario.get('invocacion')?.touched">
+                        El nombre del hechizo es obligatorio</div>
+                </div>
+                <div class="mb-3">
+                    <label for="txtPoder" class="form-label">Poder</label>
+                    <input type="text" class="form-control" id="txtPoder" formControlName="poder">
+                    <div class="fw-bold text-danger" *ngIf="hechizoFormulario.get('poder')?.hasError('required') && hechizoFormulario.get('poder')?.touched">
+                        El poder es requerido</div>
+                    <div class="fw-bold text-danger" *ngIf="hechizoFormulario.get('poder')?.hasError('pattern') && hechizoFormulario.get('poder')?.touched">
+                        El poder debe de ser solo numeros</div>
+                    <div class="fw-bold text-danger" *ngIf="hechizoFormulario.get('poder')?.hasError('min') && hechizoFormulario.get('poder')?.touched">
+                        El poder debe ser superior a 5</div>
+                    <div class="fw-bold text-danger" *ngIf="hechizoFormulario.get('poder')?.hasError('max') && hechizoFormulario.get('poder')?.touched">
+                        El poder debe ser inferior a 100</div>
+                </div>
+                <div class="mb-3">
+                    <label for="txtMana" class="form-label">Mana</label>
+                    <input type="text" class="form-control" id="txtMana" formControlName="mana">
+                    <div class="fw-bold text-danger" *ngIf="hechizoFormulario.get('mana')?.hasError('required') && hechizoFormulario.get('mana')?.touched">
+                        El mana es requerido</div>
+                    <div class="fw-bold text-danger" *ngIf="hechizoFormulario.get('mana')?.hasError('pattern') && hechizoFormulario.get('mana')?.touched">
+                        El mana debe de ser solo numeros</div>
+                    <div class="fw-bold text-danger" *ngIf="hechizoFormulario.get('mana')?.hasError('min') && hechizoFormulario.get('mana')?.touched">
+                        El mana debe ser superior a 1</div>
+                    <div class="fw-bold text-danger" *ngIf="hechizoFormulario.get('mana')?.hasError('max') && hechizoFormulario.get('mana')?.touched">
+                        El mana debe ser inferior a 70</div>
+                </div>
+                <div class="d-flex justify-content-between">
+                    <button type="button" class="btn btn-danger w-100 fw-bold" (click)="borrarFormulario()">Borrar</button>
+                    <button type="submit" class="btn btn-dark w-100 fw-bold" [disabled]="hechizoFormulario.invalid">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</section>
+
+<section class="container">
+    <div class="row">
+        <div class="col-3" *ngFor="let brujeria of listaHechizos">
+            <div class="cardH">
+                <div class="contentH">
+                    <div class="back">
+                        <div class="back-content">
+                            <img src="assets/img/svg/1.svg" alt="">
+                            <strong>{{ brujeria.invocacion }}</strong>
+                        </div>
+                    </div>
+                    <div class="front">
+                        <div class="img">
+                            <div class="circle"></div>
+                            <div class="circle" id="right"></div>
+                            <div class="circle" id="bottom"></div>
+                        </div>
+                        <div class="front-content">
+                            <small class="badge">{{ brujeria.invocacion }}</small>
+                            <div class="description">
+                                <div class="title">
+                                    <p class="title">
+                                        <strong>Poder: {{ brujeria.poder }}</strong>
+                                        <strong>Mana: {{ brujeria.mana }}</strong>
+                                    </p>
+                                    <img src="assets/img/svg/2.svg" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -5,7 +5,7 @@
                 <form [formGroup]="formularioRegistro" (ngSubmit)="enviarFormulario()" class="py-4">
                     <div class="mb-3">
                         <div class="form-floating">
-                            <input type="text" class="form-control" formControlName="nombre">
+                            <input type="text" class="form-control" formControlName="nombre" placeholder="pepe">
                             <label for="floatingInput">Nombre</label>
                         </div>
                         <div *ngIf="formularioRegistro.get('nombre')!.hasError('required') && formularioRegistro.get('nombre')!.touched" class="fw-bold text-danger">Nombre es requerido</div>

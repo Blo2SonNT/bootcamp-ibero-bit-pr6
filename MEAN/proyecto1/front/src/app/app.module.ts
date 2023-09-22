@@ -11,6 +11,8 @@ import { RegistroComponent } from './components/registro/registro.component';
 import { IngresoComponent } from './components/ingreso/ingreso.component';
 
 import { HttpClientModule } from "@angular/common/http";
+import { PersonajesComponent } from './components/core/personajes/personajes.component';
+import { HechizosComponent } from './components/core/hechizos/hechizos.component';
 
 @NgModule({
     declarations: [
@@ -20,6 +22,8 @@ import { HttpClientModule } from "@angular/common/http";
         PiePaginaComponent,
         RegistroComponent,
         IngresoComponent,
+        PersonajesComponent,
+        HechizosComponent,
     ],
     imports: [
         BrowserModule,
