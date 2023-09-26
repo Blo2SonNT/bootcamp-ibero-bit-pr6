@@ -13,6 +13,7 @@ import { IngresoComponent } from './components/ingreso/ingreso.component';
 import { HttpClientModule } from "@angular/common/http";
 import { PersonajesComponent } from './components/core/personajes/personajes.component';
 import { HechizosComponent } from './components/core/hechizos/hechizos.component';
+import { RegistroFormsModuleComponent } from './components/ant/registro-forms-module/registro-forms-module.component';
 
 @NgModule({
     declarations: [
@@ -24,6 +25,7 @@ import { HechizosComponent } from './components/core/hechizos/hechizos.component
         IngresoComponent,
         PersonajesComponent,
         HechizosComponent,
+        RegistroFormsModuleComponent,
     ],
     imports: [
         BrowserModule,
