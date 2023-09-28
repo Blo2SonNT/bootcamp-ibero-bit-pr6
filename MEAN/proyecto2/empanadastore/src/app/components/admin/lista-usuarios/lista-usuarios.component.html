@@ -1,0 +1,28 @@
+<section class="container">
+    <h1 class="text-center py-4">Lista de usuarios registrados</h1>
+    <table class="table pt-2">
+        <thead>
+            <tr>
+                <th scope="col">Correo</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellido</th>
+                <th scope="col">Dirección</th>
+                <th scope="col">Ciudad</th>
+                <th scope="col">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="align-middle" *ngFor="let usuarioData of listaUsuarios">
+                <td>{{ usuarioData.correo }}</td>
+                <td>{{ usuarioData.nombre }}</td>
+                <td>{{ usuarioData.apellido }}</td>
+                <td>{{ usuarioData.direccion }}</td>
+                <td>{{ usuarioData.ciudad }}</td>
+                <td>
+                    <button class="btn btn-dark mx-1">Editar</button>
+                    <button class="btn btn-danger mx-1" (click)="eliminarUsuario(usuarioData._id)">Eliminar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { ReactiveFormsModule } from "@angular/forms";
+import { HttpClientModule } from "@angular/common/http";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,6 +12,7 @@ import { ProductosComponent } from './components/productos/productos.component';
 import { IngresoComponent } from './components/ingreso/ingreso.component';
 import { RegistroComponent } from './components/registro/registro.component';
 import { PiePaginaComponent } from './components/pie-pagina/pie-pagina.component';
+import { ListaUsuariosComponent } from './components/admin/lista-usuarios/lista-usuarios.component';
 
 @NgModule({
     declarations: [
@@ -21,11 +23,13 @@ import { PiePaginaComponent } from './components/pie-pagina/pie-pagina.component
         IngresoComponent,
         RegistroComponent,
         PiePaginaComponent,
+        ListaUsuariosComponent,
     ],
     imports: [
         BrowserModule,
         AppRoutingModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        HttpClientModule
     ],
     providers: [],
     bootstrap: [AppComponent]
