@@ -1,1 +1,64 @@
-<p>registro works!</p>
+<!--
+
+nombre
+apellido
+correo
+password
+direccion
+ciudad
+
+ -->
+
+<section class="container">
+    <form class="pt-5" [formGroup]="usuarioForm" (ngSubmit)="registroUsuario()">
+        <div class="mb-3">
+            <label for="txtNombre" class="form-label">Nombre</label>
+            <input formControlName="nombre" type="text" class="form-control" id="txtNombre">
+            <div *ngIf="usuarioForm.get('nombre')?.hasError('required') && usuarioForm.get('nombre')?.touched" class="fw-bold text-danger">El campo nombre es requerido</div>
+            <div *ngIf="usuarioForm.get('nombre')?.hasError('pattern') && usuarioForm.get('nombre')?.touched" class="fw-bold text-danger">El campo nombre es invalido</div>
+        </div>
+        <div class="mb-3">
+            <label for="txtApellido" class="form-label">Apellido</label>
+            <input formControlName="apellido" type="text" class="form-control" id="txtApellido">
+            <div *ngIf="usuarioForm.get('apellido')?.hasError('required') && usuarioForm.get('apellido')?.touched" class="fw-bold text-danger">El campo apellido es requerido</div>
+            <div *ngIf="usuarioForm.get('apellido')?.hasError('pattern') && usuarioForm.get('apellido')?.touched" class="fw-bold text-danger">El campo apellido es invalido</div>
+        </div>
+        <div class="mb-3">
+            <label for="txtCorreo" class="form-label">Correo</label>
+            <input formControlName="correo" type="email" class="form-control" id="txtCorreo">
+            <div *ngIf="usuarioForm.get('correo')?.hasError('required') && usuarioForm.get('correo')?.touched" class="fw-bold text-danger">El campo correo es requerido</div>
+        </div>
+        <div class="mb-3">
+            <label for="txtPass1" class="form-label">Contraseña</label>
+            <input formControlName="password" type="password" class="form-control" id="txtPass1">
+            <div *ngIf="usuarioForm.get('password')?.hasError('required') && usuarioForm.get('password')?.touched" class="fw-bold text-danger">El campo contraseña es requerido</div>
+            <div *ngIf="usuarioForm.get('password')?.hasError('minlength') && usuarioForm.get('password')?.touched" class="fw-bold text-danger">El campo contraseña debe contener como mínimo 5 caracteres</div>
+            <!-- <div *ngIf="usuarioForm.get('password')?.hasError('pattern') && usuarioForm.get('password')?.touched" class="fw-bold text-danger">El campo contraseña debe contener como mínimo 1 mayuscula, 1 numero y un caracter entre @ # % *</div> -->
+        </div>
+        <div class="mb-3">
+            <label for="txtPass2" class="form-label">Rectificar contraseña</label>
+            <input type="password" class="form-control" id="txtPass2" #txtPass2 (keyup)="rectificarPass()">
+        </div>
+        <div class="mb-3 d-none" #alertPassword>
+            <div class="alert alert-danger" role="alert">
+                Sus contraseñas no son iguales
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="txtDireccion" class="form-label">Dirección</label>
+            <input formControlName="direccion" type="text" class="form-control" id="txtDireccion">
+            <div *ngIf="usuarioForm.get('direccion')?.hasError('required') && usuarioForm.get('direccion')?.touched" class="fw-bold text-danger">El campo dirección es requerido</div>
+        </div>
+        <div class="mb-3">
+            <label for="optCiudad" class="form-label">Ciudad</label>
+            <select class="form-select" id="optCiudad" formControlName="ciudad">
+                <option selected value="">Seleccione una...</option>
+                <option value="bogota">Bogota</option>
+                <option value="cali">Cali</option>
+                <option value="medellin">Medellin</option>
+            </select>
+            <div *ngIf="usuarioForm.get('ciudad')?.hasError('required') && usuarioForm.get('ciudad')?.touched" class="fw-bold text-danger">El campo ciudad es requerido</div>
+        </div>
+        <button type="submit" class="btn btn-dark w-100">Registrase</button>
+    </form>
+</section>
