@@ -24,5 +24,12 @@ export class UsuarioService {
         return this.http.delete(`${this.url}/usuario/${idUsuario}`)
     }
 
+    getUsuario(idUsuario: string): Observable<any>{
+        return this.http.get(`${this.url}/usuario/${idUsuario}`)
+    }
+
+    putUsuario(idUsuario: string, dataUsuario: Usuario): Observable<any>{
+        return this.http.put(`${this.url}/usuario/${idUsuario}`, dataUsuario)
+    }
 
 }

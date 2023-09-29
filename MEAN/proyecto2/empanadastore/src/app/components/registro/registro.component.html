@@ -10,7 +10,8 @@ ciudad
  -->
 
 <section class="container">
-    <form class="pt-5" [formGroup]="usuarioForm" (ngSubmit)="registroUsuario()">
+    <h1 class="py-5 text-center">{{ tituloPagina }}</h1>
+    <form class="pt-2" [formGroup]="usuarioForm" (ngSubmit)="registroUsuario()">
         <div class="mb-3">
             <label for="txtNombre" class="form-label">Nombre</label>
             <input formControlName="nombre" type="text" class="form-control" id="txtNombre">
@@ -59,6 +60,6 @@ ciudad
             </select>
             <div *ngIf="usuarioForm.get('ciudad')?.hasError('required') && usuarioForm.get('ciudad')?.touched" class="fw-bold text-danger">El campo ciudad es requerido</div>
         </div>
-        <button type="submit" class="btn btn-dark w-100">Registrase</button>
+        <button type="submit" class="btn btn-dark w-100">{{ txtBoton }}</button>
     </form>
 </section>

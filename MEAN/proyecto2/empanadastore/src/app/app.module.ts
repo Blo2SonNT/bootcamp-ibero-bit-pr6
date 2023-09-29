@@ -13,6 +13,7 @@ import { IngresoComponent } from './components/ingreso/ingreso.component';
 import { RegistroComponent } from './components/registro/registro.component';
 import { PiePaginaComponent } from './components/pie-pagina/pie-pagina.component';
 import { ListaUsuariosComponent } from './components/admin/lista-usuarios/lista-usuarios.component';
+import { Error404Component } from './components/error404/error404.component';
 
 @NgModule({
     declarations: [
@@ -24,6 +25,7 @@ import { ListaUsuariosComponent } from './components/admin/lista-usuarios/lista-
         RegistroComponent,
         PiePaginaComponent,
         ListaUsuariosComponent,
+        Error404Component,
     ],
     imports: [
         BrowserModule,

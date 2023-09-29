@@ -19,7 +19,7 @@
                 <td>{{ usuarioData.direccion }}</td>
                 <td>{{ usuarioData.ciudad }}</td>
                 <td>
-                    <button class="btn btn-dark mx-1">Editar</button>
+                    <button class="btn btn-dark mx-1" [routerLink]="['/editar-info-usuario', usuarioData._id]">Editar</button>
                     <button class="btn btn-danger mx-1" (click)="eliminarUsuario(usuarioData._id)">Eliminar</button>
                 </td>
             </tr>
