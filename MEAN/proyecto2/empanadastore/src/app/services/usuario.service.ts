@@ -28,7 +28,7 @@ export class UsuarioService {
         return this.http.get(`${this.url}/usuario/${idUsuario}`)
     }
 
-    putUsuario(idUsuario: string, dataUsuario: Usuario): Observable<any>{
+    putUsuario(idUsuario: string | null, dataUsuario: Usuario): Observable<any>{
         return this.http.put(`${this.url}/usuario/${idUsuario}`, dataUsuario)
     }
 

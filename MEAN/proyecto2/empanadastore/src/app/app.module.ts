@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { ReactiveFormsModule } from "@angular/forms";
+import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 
 import { AppRoutingModule } from './app-routing.module';
@@ -14,6 +14,8 @@ import { RegistroComponent } from './components/registro/registro.component';
 import { PiePaginaComponent } from './components/pie-pagina/pie-pagina.component';
 import { ListaUsuariosComponent } from './components/admin/lista-usuarios/lista-usuarios.component';
 import { Error404Component } from './components/error404/error404.component';
+import { TablaMultiplicarComponent } from './components/ejemplos/tabla-multiplicar/tabla-multiplicar.component';
+import { MisLikesComponent } from './components/ejemplos/mis-likes/mis-likes.component';
 
 @NgModule({
     declarations: [
@@ -26,12 +28,15 @@ import { Error404Component } from './components/error404/error404.component';
         PiePaginaComponent,
         ListaUsuariosComponent,
         Error404Component,
+        TablaMultiplicarComponent,
+        MisLikesComponent,
     ],
     imports: [
         BrowserModule,
         AppRoutingModule,
         ReactiveFormsModule,
-        HttpClientModule
+        HttpClientModule,
+        FormsModule
     ],
     providers: [],
     bootstrap: [AppComponent]

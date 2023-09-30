@@ -1,0 +1,19 @@
+<section>
+    <h1>Botón contador</h1>
+    <div class="d-flex justify-content-center align-items-center">
+        <img src="assets/img/ejemplos/like.png" class="w-25" (click)="sumarLike()" alt="">
+        <div class="cajaContador text-white fw-bold d-flex justify-content-center align-items-center bg-danger rounded h1 rounded-circle">
+            {{ cantidadLikes_x_click }}
+        </div>
+    </div>
+</section>
+
+<section>
+    <h1>Like / Unlike</h1>
+    <div class="d-flex justify-content-center align-items-center">
+        <img #btnLike src="assets/img/ejemplos/like.png" class="w-25" (click)="accionBoton()" alt="">
+        <div class="cajaContador text-white fw-bold d-flex justify-content-center align-items-center bg-danger rounded h1 rounded-circle">
+            {{ like_x_usuario }}
+        </div>
+    </div>
+</section>

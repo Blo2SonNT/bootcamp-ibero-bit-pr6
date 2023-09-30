@@ -6,6 +6,8 @@ import { IngresoComponent } from './components/ingreso/ingreso.component';
 import { RegistroComponent } from './components/registro/registro.component';
 import { ListaUsuariosComponent } from './components/admin/lista-usuarios/lista-usuarios.component';
 import { Error404Component } from './components/error404/error404.component';
+import { TablaMultiplicarComponent } from './components/ejemplos/tabla-multiplicar/tabla-multiplicar.component';
+import { MisLikesComponent } from './components/ejemplos/mis-likes/mis-likes.component';
 
 const routes: Routes = [
     {path: '', component: InicioComponent},
@@ -15,6 +17,8 @@ const routes: Routes = [
     {path: 'admin/usuarios-registrados', component: ListaUsuariosComponent},
     {path: 'editar-info-usuario/:id', component: RegistroComponent},
     {path: '404', component: Error404Component},
+    {path: 'ejemplo/tabla-multiplicar', component: TablaMultiplicarComponent},
+    {path: 'ejemplo/like', component: MisLikesComponent},
     {path: '**', redirectTo: '404', pathMatch: 'full'}
 ];
 
