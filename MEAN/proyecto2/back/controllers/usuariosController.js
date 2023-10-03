@@ -5,10 +5,10 @@ exports.crearUsuario = async(req, res) => {
     try {
         let usuario = new Usuario(req.body)
         await usuario.save()
-        res.send(usuario)
+        res.json(usuario)
     } catch (error) {
         console.log(error)
-        res.status(500).send('Ups, algo paso, comuníquese con el administrador')
+        res.status(500).json({ msg: 'Ups, algo paso, comuníquese con el administrador' })
     }
 }
 exports.buscarUsuarios = async(req, res) => {
@@ -17,7 +17,7 @@ exports.buscarUsuarios = async(req, res) => {
         res.json(usuarios)
     } catch (error) {
         console.log(error)
-        res.status(500).send('Ups, algo paso, comuníquese con el administrador')
+        res.status(500).json({ msg: 'Ups, algo paso, comuníquese con el administrador' })
     }
 }
 exports.buscarUnUsuario = async(req, res) => {
@@ -30,7 +30,7 @@ exports.buscarUnUsuario = async(req, res) => {
         res.json(usuario)
     } catch (error) {
         console.log(error)
-        res.status(500).send('Ups, algo paso, comuníquese con el administrador')
+        res.status(500).json({ msg: 'Ups, algo paso, comuníquese con el administrador' })
     }
 }
 
@@ -44,7 +44,7 @@ exports.buscarUnUsuarioPorNombre = async(req, res) => {
         res.json(usuario)
     } catch (error) {
         console.log(error)
-        res.status(500).send('Ups, algo paso, comuníquese con el administrador')
+        res.status(500).json({ msg: 'Ups, algo paso, comuníquese con el administrador' })
     }
 }
 
@@ -70,7 +70,7 @@ exports.actualizarUsuario = async(req, res) => {
 
     } catch (error) {
         console.log(error)
-        res.status(500).send('Ups, algo paso, comuníquese con el administrador')
+        res.status(500).json({ msg: 'Ups, algo paso, comuníquese con el administrador' })
     }
 }
 exports.eliminarUsuario = async(req, res) => {
@@ -85,6 +85,6 @@ exports.eliminarUsuario = async(req, res) => {
 
     } catch (error) {
         console.log(error)
-        res.status(500).send('Ups, algo paso, comuníquese con el administrador')
+        res.status(500).json({ msg: 'Ups, algo paso, comuníquese con el administrador' })
     }
 }
