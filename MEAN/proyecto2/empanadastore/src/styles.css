@@ -2,17 +2,78 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap');
 :root {
-    --color-verde: #e7c014;
+    --color-verde: #68e714;
+}
+
+body {
+    overflow-x: hidden;
 }
 
 * {
     font-family: 'Poppins', sans-serif;
 }
 
-.bg-verde-1 {
-    background-color: var(--color-verde);
-}
-
 .w-10 {
     width: 10%;
+}
+
+@font-face {
+    font-family: 'letra1';
+    src: url(assets/fonts/ananda.ttf);
+}
+
+.letra-pagina-1 {
+    font-family: 'letra1' !important;
+}
+
+.btnCarrito {
+    outline: none;
+    cursor: pointer;
+    border: none;
+    padding: 0.9rem 2rem;
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    position: relative;
+    display: inline-block;
+    letter-spacing: 0.05rem;
+    font-weight: 700;
+    font-size: 17px;
+    border-radius: 500px;
+    overflow: hidden;
+    background: #ffda05;
+    color: #f8f8ff;
+}
+
+.btnCarrito span {
+    position: relative;
+    z-index: 10;
+    transition: color 0.4s;
+}
+
+.btnCarrito:hover span {
+    color: black;
+}
+
+.btnCarrito::before,
+.btnCarrito::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.btnCarrito::before {
+    content: "";
+    background: #000;
+    width: 120%;
+    left: -10%;
+    transform: skew(30deg);
+    transition: transform 0.4s cubic-bezier(0.3, 1, 0.8, 1);
+}
+
+.btnCarrito:hover::before {
+    transform: translate3d(100%, 0, 0);
 }

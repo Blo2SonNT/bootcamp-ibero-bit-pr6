@@ -1,1 +1,18 @@
-<p>productos works!</p>
+<section class="container">
+    <section class="mt-4">
+        <div class="row row-cols-1 row-cols-md-4 g-4">
+            <div class="col" *ngFor="let itemEmpanada of listaEmpanadas">
+                <div class="card">
+                    <img src="{{itemEmpanada.imagen}}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h3 class="card-title letra-pagina-1 fw-bold">{{ itemEmpanada.nombre }}</h3>
+                        <p class="card-text fw-bold">$ {{ itemEmpanada.precio | number}}</p>
+                        <button class="btnCarrito w-100">
+                            <span><i class="fa-solid fa-cart-shopping pe-3"></i>Agregar al carrito</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>

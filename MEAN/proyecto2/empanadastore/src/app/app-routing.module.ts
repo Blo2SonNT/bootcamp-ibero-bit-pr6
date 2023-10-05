@@ -8,6 +8,7 @@ import { ListaUsuariosComponent } from './components/admin/lista-usuarios/lista-
 import { Error404Component } from './components/error404/error404.component';
 import { TablaMultiplicarComponent } from './components/ejemplos/tabla-multiplicar/tabla-multiplicar.component';
 import { MisLikesComponent } from './components/ejemplos/mis-likes/mis-likes.component';
+import { GestionEmpanadasComponent } from './components/admin/gestion-empanadas/gestion-empanadas.component';
 
 const routes: Routes = [
     {path: '', component: InicioComponent},
@@ -19,6 +20,7 @@ const routes: Routes = [
     {path: '404', component: Error404Component},
     {path: 'ejemplo/tabla-multiplicar', component: TablaMultiplicarComponent},
     {path: 'ejemplo/like', component: MisLikesComponent},
+    {path: 'admin/gestion-empanadas', component: GestionEmpanadasComponent},
     {path: '**', redirectTo: '404', pathMatch: 'full'}
 ];
 

@@ -1,0 +1,51 @@
+<div class="container pt-5">
+    <form [formGroup]="empanadaForm" (ngSubmit)="enviarFormulario()">
+        <h1 class="fw-bold text-center py-5">{{tituloFormulario}}</h1>
+        <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre</label>
+            <input formControlName="nombre" type="text" class="form-control" id="nombre">
+        </div>
+        <div class="mb-3">
+            <label for="precio" class="form-label">Precio</label>
+            <input formControlName="precio" type="text" class="form-control" id="precio">
+        </div>
+        <div class="mb-3">
+            <label for="sabor" class="form-label">Sabor</label>
+            <input formControlName="sabor" type="text" class="form-control" id="sabor">
+        </div>
+        <div class="mb-3">
+            <label for="tipo" class="form-label">Tipo</label>
+            <input formControlName="tipo" type="text" class="form-control" id="tipo">
+        </div>
+        <div class="mb-3">
+            <label for="imagen" class="form-label">Imagen</label>
+            <input formControlName="imagen" type="text" class="form-control" id="imagen">
+        </div>
+        <button type="submit" class="btn btn-dark fw-bold w-100">{{ txtBoton }}</button>
+    </form>
+    <input type="text" id="idEmpanada" #idEmpanada>
+
+    <div class="alert alert-warning" role="alert" *ngIf="listaEmpanadas.length == 0">
+        <div class="fw-bold text-center h3">No hay productos registrados</div>
+    </div>
+    <div class="row row-cols-1 row-cols-md-4 g-4">
+        <div class="col" *ngFor="let itemEmpanada of listaEmpanadas">
+            <div class="card">
+                <img src="https://via.placeholder.com/300x300" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{ itemEmpanada.nombre }}</h5>
+                    <p class="card-text">$ {{ itemEmpanada.precio | number}}</p>
+                    <div class="d-flex justify-content-end">
+                        <button class="btn btn-warning me-2" (click)="alimentarIdFormulario(itemEmpanada._id)">
+                            <i class="fa-solid fa-pen"></i>
+                        </button>
+                        <button class="btn btn-danger me-2" (click)="eliminarEmpanada(itemEmpanada._id)">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

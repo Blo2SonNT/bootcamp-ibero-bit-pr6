@@ -1,10 +1,18 @@
-nav {
-    background-color: var(--color-verde);
+.div-btn-menu {
+    position: relative;
 }
 
+.btn-menu {
+    position: absolute;
+    left: 93%;
+    top: 7px;
+    white-space: nowrap;
+}
 
-/*
-.empanadaLogoVector:hover~.empanadaLogo {
-    display: none;
-    display: block;
-} */
+nav {
+    background-color: #acacac;
+}
+
+.opt-menu {
+    font-size: 1.2rem !important;
+}

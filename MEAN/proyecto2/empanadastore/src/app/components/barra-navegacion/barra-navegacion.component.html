@@ -1,44 +1,36 @@
-<nav class="navbar navbar-expand-lg bg-verde-1">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">
-            <!-- <img src="assets/img/empanada-vector.png" class="w-10 empanadaLogoVector" alt=""> -->
-            <img src="assets/img/empanada.png" class="w-10 empanadaLogo" alt="">
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <div class="nav-link active" routerLink="/">Inicio</div>
-                </li>
-                <li class="nav-item">
-                    <div class="nav-link" routerLink="/empanadas">Productos</div>
-                </li>
-            </ul>
-        </div>
-        <div class="dropdown">
-            <button class="btn btn-dark" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">Mi cuenta</button>
+<section class="div-btn-menu w-100">
+    <div class=" letra-pagina-1 h2 text-white h4 btn-menu pt-3" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">Mi cuenta</div>
+</section>
+<div class="d-flex justify-content-center align-items-center bg-dark">
+    <img src="assets/img/logo.png" class="w-25" alt="">
+</div>
+<nav class="container-fluid py-3 sticky-top ">
+    <div class="d-flex justify-content-center">
+        <div class="d-flex">
+            <div class="h3 letra-pagina-1 mx-4" routerLink="/">Inicio</div>
+            <div class="h3 letra-pagina-1 mx-4" routerLink="/empanadas">Productos</div>
         </div>
     </div>
 </nav>
 
-<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-    <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasExampleLabel">EmpanadaStore</h5>
+<div class="offcanvas offcanvas-start bg-dark" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas-header d-flex justify-content-end">
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
-        <div class="d-flex justify-content-center flex-column align-items-center">
-            <button class="btn" routerLink="/ingreso">Iniciar sesión</button>
-            <button class="btn" routerLink="/registro">Registro</button>
-        </div>
-        <div class="d-flex justify-content-center flex-column align-items-center">
-            <h3>Administración</h3>
-            <button class="btn" routerLink="/admin/usuarios-registrados">Lista de usuarios</button>
-        </div>
-        <div class="d-flex justify-content-center flex-column align-items-center">
-            <button class="btn" routerLink="/ingreso">Mi perfil</button>
+        <div class="d-flex flex-column justify-content-center align-items-center h-100">
+            <div class="d-flex justify-content-center flex-column align-items-center">
+                <h3 class="h1 fw-bold letra-pagina-1 py-4 text-white">Cuenta</h3>
+                <div class="letra-pagina-1 h3 py-2 text-white" routerLink="/ingreso">Iniciar sesión</div>
+                <div class="letra-pagina-1 h3 py-2 text-white" routerLink="/registro">Registro</div>
+                <div class="letra-pagina-1 h3 py-2 text-white" routerLink="/ingreso">Mi perfil</div>
+                <div class="letra-pagina-1 h3 py-2 text-white" routerLink="/ingreso">Cerrar Sesión</div>
+            </div>
+            <div class="d-flex justify-content-center flex-column align-items-center">
+                <h3 class="h1 fw-bold letra-pagina-1 py-4 text-white">Administración</h3>
+                <div class="letra-pagina-1 h3 py-2 text-white" routerLink="/admin/usuarios-registrados">Lista de usuarios</div>
+                <div class="letra-pagina-1 h3 py-2 text-white" routerLink="/admin/gestion-empanadas">Lista de empanadas</div>
+            </div>
         </div>
     </div>
 </div>

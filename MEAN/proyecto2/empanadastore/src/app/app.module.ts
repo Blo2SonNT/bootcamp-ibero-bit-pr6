@@ -16,6 +16,7 @@ import { ListaUsuariosComponent } from './components/admin/lista-usuarios/lista-
 import { Error404Component } from './components/error404/error404.component';
 import { TablaMultiplicarComponent } from './components/ejemplos/tabla-multiplicar/tabla-multiplicar.component';
 import { MisLikesComponent } from './components/ejemplos/mis-likes/mis-likes.component';
+import { GestionEmpanadasComponent } from './components/admin/gestion-empanadas/gestion-empanadas.component';
 
 @NgModule({
     declarations: [
@@ -30,6 +31,7 @@ import { MisLikesComponent } from './components/ejemplos/mis-likes/mis-likes.com
         Error404Component,
         TablaMultiplicarComponent,
         MisLikesComponent,
+        GestionEmpanadasComponent,
     ],
     imports: [
         BrowserModule,

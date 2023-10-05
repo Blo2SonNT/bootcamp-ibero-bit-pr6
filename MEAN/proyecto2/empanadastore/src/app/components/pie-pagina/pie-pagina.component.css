@@ -1,0 +1,128 @@
+.social {
+    margin: 0;
+    list-style: none;
+    padding-left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.social .social-item {
+    margin: 0 30px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.social .social-item .social-link {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    text-align: center;
+    transform: perspective(1000px) rotate(-30deg) skew(25deg) translate(0, 0);
+    transition: all 0.4s ease;
+}
+
+.social .social-item .social-link::before {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: -10px;
+    height: 100%;
+    width: 10px;
+    background: #b1b1b1;
+    transition: all 0.4s ease;
+    transform: rotate(0deg) skewY(-45deg);
+}
+
+.social .social-item .social-link::after {
+    content: "";
+    position: absolute;
+    top: 40px;
+    left: -5px;
+    height: 10px;
+    width: 100%;
+    background: #b1b1b1;
+    transition: all 0.4s ease;
+    transform: rotate(0deg) skewX(-45deg);
+}
+
+.social .social-item .social-link:hover {
+    transform: perspective(1000px) rotate(-30deg) skew(25deg) translate(5px, -5px);
+    box-shadow: -20px 20px 10px rgba(0, 0, 0, 0.5);
+}
+
+.social .social-item:nth-child(1) a {
+    color: #3b5999;
+}
+
+.social .social-item:nth-child(1):hover a {
+    background: #3b5999;
+}
+
+.social .social-item:nth-child(1):hover a::before {
+    background: #3b5999;
+}
+
+.social .social-item:nth-child(1):hover a::after {
+    background: #3b5999;
+}
+
+.social .social-item:nth-child(2) a {
+    color: #55acee;
+}
+
+.social .social-item:nth-child(2):hover a {
+    background: #55acee;
+}
+
+.social .social-item:nth-child(2):hover a::before {
+    background: #55acee;
+}
+
+.social .social-item:nth-child(2):hover a::after {
+    background: #55acee;
+}
+
+.social .social-item:nth-child(3) a {
+    color: #dd4b39;
+}
+
+.social .social-item:nth-child(3):hover a {
+    background: #dd4b39;
+}
+
+.social .social-item:nth-child(3):hover a::before {
+    background: #dd4b39;
+}
+
+.social .social-item:nth-child(3):hover a::after {
+    background: #dd4b39;
+}
+
+.social .social-item:nth-child(4) a {
+    color: #e4405f;
+}
+
+.social .social-item:nth-child(4):hover a {
+    background: #e4405f;
+}
+
+.social .social-item:nth-child(4):hover a::before {
+    background: #e4405f;
+}
+
+.social .social-item:nth-child(4):hover a::after {
+    background: #e4405f;
+}
+
+.social .social-item .social-link:hover {
+    color: #ffffff;
+}
