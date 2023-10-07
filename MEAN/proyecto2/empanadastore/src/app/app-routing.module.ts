@@ -9,13 +9,14 @@ import { Error404Component } from './components/error404/error404.component';
 import { TablaMultiplicarComponent } from './components/ejemplos/tabla-multiplicar/tabla-multiplicar.component';
 import { MisLikesComponent } from './components/ejemplos/mis-likes/mis-likes.component';
 import { GestionEmpanadasComponent } from './components/admin/gestion-empanadas/gestion-empanadas.component';
+import { autenticacionGuard } from './guards/autenticacion.guard';
 
 const routes: Routes = [
     {path: '', component: InicioComponent},
     {path: 'empanadas', component: ProductosComponent},
     {path: 'ingreso', component: IngresoComponent},
     {path: 'registro', component: RegistroComponent},
-    {path: 'admin/usuarios-registrados', component: ListaUsuariosComponent},
+    {path: 'admin/usuarios-registrados', canMatch:[autenticacionGuard], component: ListaUsuariosComponent},
     {path: 'editar-info-usuario/:id', component: RegistroComponent},
     {path: '404', component: Error404Component},
     {path: 'ejemplo/tabla-multiplicar', component: TablaMultiplicarComponent},

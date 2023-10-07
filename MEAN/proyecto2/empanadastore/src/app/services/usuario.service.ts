@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
+import { HttpClient,HttpHeaders } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { Usuario } from "../models/Usuario";
 
@@ -17,7 +17,8 @@ export class UsuarioService {
     }
 
     getUsuarios(): Observable<any>{
-        return this.http.get(`${this.url}/usuarios`)
+        const headers = new HttpHeaders().set('Authorization', `Bearer ${sessionStorage.getItem('tokenIngresoPepeA')}`)
+        return this.http.get(`${this.url}/usuarios`, { headers } )
     }
 
     deleteUsuario(idUsuario: string): Observable<any>{
@@ -30,6 +31,19 @@ export class UsuarioService {
 
     putUsuario(idUsuario: string | null, dataUsuario: Usuario): Observable<any>{
         return this.http.put(`${this.url}/usuario/${idUsuario}`, dataUsuario)
+    }
+
+    postIngresoCuenta(dataLogin: object): Observable<any>{
+        return this.http.post(`${this.url}/ingreso`, dataLogin)
+    }
+
+    estaLogueado(){
+        // if(sessionStorage.getItem('tokenIngresoPepeA') != null){
+        //     return true
+        // }else{
+        //     return false
+        // }
+        return (sessionStorage.getItem('tokenIngresoPepeA') != null) ? true : false
     }
 
 }
