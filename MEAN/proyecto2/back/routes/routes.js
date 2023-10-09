@@ -22,7 +22,7 @@ router.post('/empanada', empanadaController.crearEmpanada)
 router.get('/empanadas-inicio/:limite', empanadaController.buscarEmpanadasPorLimite)
 
 router.get('/usuarios', mdJWT.verificarToken, usuariosController.buscarUsuarios)
-router.get('/usuario/:id', usuariosController.buscarUnUsuario)
+router.get('/usuario/:id', mdJWT.verificarToken, usuariosController.buscarUnUsuario)
 router.get('/usuario2/:nombre', usuariosController.buscarUnUsuarioPorNombre)
 router.put('/usuario/:id', usuariosController.actualizarUsuario)
 router.delete('/usuario/:id', usuariosController.eliminarUsuario)

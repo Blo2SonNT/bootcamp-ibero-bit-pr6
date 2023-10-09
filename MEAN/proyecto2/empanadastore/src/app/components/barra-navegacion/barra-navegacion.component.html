@@ -15,16 +15,20 @@
 
 <div class="offcanvas offcanvas-start bg-dark" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
     <div class="offcanvas-header d-flex justify-content-end">
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close" #btnCloseBarra></button>
     </div>
     <div class="offcanvas-body">
         <div class="d-flex flex-column justify-content-center align-items-center h-100">
             <div class="d-flex justify-content-center flex-column align-items-center">
                 <h3 class="h1 fw-bold letra-pagina-1 py-4 text-white">Cuenta</h3>
-                <div class="letra-pagina-1 h3 py-2 text-white" routerLink="/ingreso">Iniciar sesión</div>
-                <div class="letra-pagina-1 h3 py-2 text-white" routerLink="/registro">Registro</div>
-                <div class="letra-pagina-1 h3 py-2 text-white" routerLink="/ingreso">Mi perfil</div>
-                <div class="letra-pagina-1 h3 py-2 text-white" routerLink="/ingreso">Cerrar Sesión</div>
+                <ng-container *ngIf="!_usuarioService.estaLogueado(); else seccionPerfil">
+                    <div class="letra-pagina-1 h3 py-2 text-white" routerLink="/ingreso">Iniciar sesión</div>
+                    <div class="letra-pagina-1 h3 py-2 text-white" routerLink="/registro">Registro</div>
+                </ng-container>
+                <ng-template #seccionPerfil>
+                    <div class="letra-pagina-1 h3 py-2 text-white" routerLink="/ingreso">Mi perfil</div>
+                    <div class="letra-pagina-1 h3 py-2 text-white" (click)="cerrarSesion()">Cerrar Sesión</div>
+                </ng-template>
             </div>
             <div class="d-flex justify-content-center flex-column align-items-center">
                 <h3 class="h1 fw-bold letra-pagina-1 py-4 text-white">Administración</h3>
