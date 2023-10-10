@@ -14,18 +14,24 @@ export class IngresoComponent {
         password: ''
     }
 
-    constructor(private _usuarioService: UsuarioService, private router: Router){}
+    constructor(private _usuarioService: UsuarioService, private router: Router) { }
 
-    ingresoUsuario(){
+    ingresoUsuario() {
         this._usuarioService.postIngresoCuenta(this.userFormLogin).subscribe(respuestaAPI => {
+            let tokenGenerado = respuestaAPI.token
             sessionStorage.setItem('tokenIngresoPepeA', respuestaAPI.token)
-            this.router.navigate(['/'])
+            this._usuarioService.postDesencriptarToken(tokenGenerado).subscribe(respuestaAPI2 => {
+                console.log(respuestaAPI2)
+                sessionStorage.setItem('infoUsuario', JSON.stringify(respuestaAPI2.decodedPayload))
+                this.router.navigate(['/'])
+            })
         }, erro => {
             Swal.fire({
                 icon: 'error',
                 title: 'Usuario y/o contraseña inválidos',
                 iconColor: '#ff0d0d'
             })
+            console.log(erro)
         })
     }
 

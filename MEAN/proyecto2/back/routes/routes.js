@@ -29,7 +29,7 @@ router.delete('/usuario/:id', usuariosController.eliminarUsuario)
 router.post('/usuario', usuariosController.crearUsuario)
 
 router.post('/ingreso', sessionController.generarToken)
-
+router.post('/infotoken', sessionController.desencriptarToken)
 
 module.exports = router
 

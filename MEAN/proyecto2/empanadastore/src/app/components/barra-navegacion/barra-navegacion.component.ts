@@ -15,6 +15,7 @@ export class BarraNavegacionComponent{
 
     cerrarSesion(){
         sessionStorage.removeItem('tokenIngresoPepeA');
+        sessionStorage.removeItem('infoUsuario');
         this.router.navigate(['/ingreso'])
         this.btnCloseBarra.nativeElement.click()
     }

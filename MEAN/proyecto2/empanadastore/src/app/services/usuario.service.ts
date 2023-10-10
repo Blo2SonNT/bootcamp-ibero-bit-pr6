@@ -46,4 +46,8 @@ export class UsuarioService {
         return (sessionStorage.getItem('tokenIngresoPepeA') != null) ? true : false
     }
 
+    postDesencriptarToken(token:string): Observable<any>{
+        return this.http.post(`${this.url}/infotoken`, { tokenUser: token } )
+    }
+
 }
